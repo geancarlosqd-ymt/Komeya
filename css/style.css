@@ -29,8 +29,8 @@ p {
     color: #666;
 }
 #logotopo {
-    width: 10px;
-    height: 12px;
-    vertical-align: bottom;
-    margin-right: 100px;
+    width: 50px;
+    height: auto;
+    vertical-align: middle;
+    margin-right: 10px;
 }
