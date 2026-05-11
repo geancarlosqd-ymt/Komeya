@@ -1,17 +1,19 @@
 * {
     box-sizing: border-box;
 }
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f4f4f4;
 }
-header {
-    background-color: #333;
+
+header nav ul {
+    background-color: #db8c24;
     color: #fff;
     padding: 10px 0;
-    text-align: left ;
+    text-align: left;
     display: flex;
     align-items: center;
     gap: 15rem;
@@ -19,18 +21,22 @@ header {
 main {
     padding: 20px;
 }
+
 section {
     background-color: #fff;
     padding: 20px;
     margin-bottom: 20px;
     border-radius: 5px;
 }
+
 h1 {
     color: #333;
 }
+
 p {
     color: #666;
 }
+
 #logotopo {
     width: 50px;
     height: auto;
