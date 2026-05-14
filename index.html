@@ -6,20 +6,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Komeya</title>
     <link rel="stylesheet" href="css/style.css">
+    
 </head>
 
 <body>
     <header>
         <!--<nav>
-                <ul> -->
+                <ul> 
+        <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
         <img src="image/logo.png" alt="logotopo" class="logotopo" width="100" height="100">
         <a href="index.html">Início</a>
         <a href="pages/sobre.html">Sobre</a>
         <a href="pages/serviços.html">Serviços</a>
         <a href="pages/blog.html">Blog</a>
         <a href="pages/contato.html">Contato</a>
-        <!--  </ul>
+          </ul>
         </nav> -->
+         <div class="navbar">
+            <img src="image/Horizontal2.png" alt="logotopo" class="logotopo" width="100" height="100">
+    
+    <button class="hamburger" id="btn"
+      aria-label="Abrir menu"
+      aria-expanded="false"
+      onclick="toggleMenu()">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+  </div>
+  <div class="nav-menu" id="menu" aria-hidden="true">
+    <a href="index.html">Início</a>
+    <a href="pages/sobre.html">Sobre</a>
+    <a href="pages/serviços.html">Serviços</a>
+    <a href="pages/contato.html">Contato</a>
+  </div>
+  
     </header>
     <main>
         <section>
@@ -30,15 +51,25 @@
         </section>
         <section>
             <h2>Bem-vindo à Komeya Veterinária</h2>
-            <p>Na Komeya Veterinária, entendemos que seu animal de estimação é mais do que apenas um companheiro - ele é parte da família. É por isso que estamos comprometidos em fornecer cuidados veterinários excepcionais para garantir a saúde e o bem-estar do seu amigo peludo.</p>
-            <p>Nossa equipe de veterinários altamente qualificados e apaixonados está pronta para oferecer uma ampla gama de serviços, desde consultas de rotina até tratamentos especializados. Utilizamos tecnologia avançada e abordagens inovadoras para garantir que seu animal receba o melhor cuidado possível.</p>
-            <p>Na Komeya Veterinária, acreditamos na importância da prevenção e educação. Estamos aqui para ajudar você a entender as necessidades do seu animal de estimação e fornecer orientações para mantê-lo saudável e feliz ao longo de sua vida.</p>
-            <p>Seja para um check-up regular, vacinação, cirurgia ou qualquer outra necessidade veterinária, a Komeya Veterinária é o lugar onde você pode confiar para cuidar do seu amado companheiro. Junte-se a nós na jornada de proporcionar uma vida longa e saudável para o seu animal de estimação!</p>
+            <p>Na Komeya Veterinária, entendemos que seu animal de estimação é mais do que apenas um companheiro - ele é
+                parte da família. É por isso que estamos comprometidos em fornecer cuidados veterinários excepcionais
+                para garantir a saúde e o bem-estar do seu amigo peludo.</p>
+            <p>Nossa equipe de veterinários altamente qualificados e apaixonados está pronta para oferecer uma ampla
+                gama de serviços, desde consultas de rotina até tratamentos especializados. Utilizamos tecnologia
+                avançada e abordagens inovadoras para garantir que seu animal receba o melhor cuidado possível.</p>
+            <p>Na Komeya Veterinária, acreditamos na importância da prevenção e educação. Estamos aqui para ajudar você
+                a entender as necessidades do seu animal de estimação e fornecer orientações para mantê-lo saudável e
+                feliz ao longo de sua vida.</p>
+            <p>Seja para um check-up regular, vacinação, cirurgia ou qualquer outra necessidade veterinária, a Komeya
+                Veterinária é o lugar onde você pode confiar para cuidar do seu amado companheiro. Junte-se a nós na
+                jornada de proporcionar uma vida longa e saudável para o seu animal de estimação!</p>
         </section>
 
         <footer>
             <p>&copy; 2024 Komeya Veterinária. Todos os direitos reservados.</p>
         </footer>
+
+        <script src="js/script.js" defer></script>
 </body>
 
 </html>
