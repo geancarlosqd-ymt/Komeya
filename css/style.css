@@ -2,6 +2,17 @@
     box-sizing: border-box;
 }
 
+header {
+    background-color: #5C3D2E;
+    color: #fff;
+   /* padding: 10px 0;
+    text-align: left;
+    align-items: center;  */
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -9,7 +20,7 @@ body {
     background-color: #f4f4f4;
     background-image: url("../image/background.jpg");
     background-size: cover;
-    background-attachment: fixed; // Mantém a imagem fixa durante a rolagem
+    background-attachment: fixed;
     background-position: center;
 }
 
@@ -65,10 +76,6 @@ footer {
     ;
 }
 
-
-
-
-
 .hamburger {
     margin-right: auto;
   background: none;
@@ -113,18 +120,18 @@ footer {
 /* Menu */
 .nav-menu {
     background-color: #4a3024;
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.4s cubic-bezier(0.23,1,0.32,1);
-  display: flex;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.23,1,0.32,1);
+    display: flex;
     flex-direction: column;
 }
 .nav-menu.is-open { max-height: 300px; }
 .navbar {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 10px 20px;
 }
 .nav-menu a {
     color: rgba(255, 255, 255, 0.85);
@@ -136,4 +143,15 @@ footer {
 .nav-menu a:hover {
     background: rgba(255, 255, 255, 0.08);
     color: #fff;
+}
+
+.divMain{
+    background-image: url(../image/golden-health.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    min-height: 100vh;
+
+    padding: 20px;
 }
