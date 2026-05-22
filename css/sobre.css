@@ -90,7 +90,7 @@ footer {
     height: 2px;
     background: #fff;
     border-radius: 2px;
-    transition:transform 0.35s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.25s ease, width 0.3s ease;
+    transition: transform 0.35s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.25s ease, width 0.3s ease;
     transform-origin: center;
 }
 
@@ -137,22 +137,28 @@ footer {
     .navbar {
         padding: 10px;
     }
+
     .logotopo {
         width: 80px;
     }
-     main {
+
+    main {
         padding: 10px;
     }
+
     section {
         margin: 10px;
         padding: 15px;
     }
+
     h1 {
         font-size: 28px;
     }
+
     p {
         font-size: 14px;
     }
+
     footer {
         text-align: center;
         font-size: 14px;
