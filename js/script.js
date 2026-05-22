@@ -4,6 +4,7 @@ function toggleMenu() {
   const open = btn.classList.toggle('is-open');
   menu.classList.toggle('is-open');
   btn.setAttribute('aria-expanded', open);
+  menu.setAttribute('aria-hidden', !open);
 }
 
 // Fechar ao clicar fora
@@ -14,5 +15,6 @@ document.addEventListener('click', (e) => {
     btn.classList.remove('is-open');
     menu.classList.remove('is-open');
     btn.setAttribute('aria-expanded', 'false');
+    menu.setAttribute('aria-hidden', 'true');
   }
 });
