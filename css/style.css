@@ -1,12 +1,18 @@
 /* ===========================
    RESET & BASE
    =========================== */
-*,
-*::before,
-*::after {
+*, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+/* Variáveis de cor — Se quiser mudar as cores, muda aqui */
+:root {
+  --cor-header:      #1B4D3E;
+  --cor-header-dark: #163d31;
+  --cor-footer:      #1B4D3E;
+  --cor-btn:         #163d31;
 }
 
 body {
@@ -25,7 +31,7 @@ body {
    HEADER
    =========================== */
 header {
-  background-color: #1B4D3E;
+  background-color: var(--cor-header);
   color: #fff;
   position: sticky;
   top: 0;
@@ -42,10 +48,21 @@ header {
   width: 100%;
 }
 
+/* Logo clicável  */
+.logo-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  /* Margem à esquerda para afastar da borda */
+  margin-left: 8px;
+  flex-shrink: 0;
+}
+
 .logotopo {
   width: auto;
-  height: 100px;
+  height: 70px;
   object-fit: contain;
+  display: block;
 }
 
 /* Nav desktop */
@@ -86,9 +103,7 @@ header {
   margin-left: auto;
 }
 
-.hamburger:hover {
-  background: rgba(255, 255, 255, 0.1);
-}
+.hamburger:hover { background: rgba(255,255,255,0.1); }
 
 .hamburger .bar {
   display: block;
@@ -96,50 +111,40 @@ header {
   height: 2px;
   background: #fff;
   border-radius: 2px;
-  transition: transform 0.35s cubic-bezier(0.23, 1, 0.32, 1),
-    opacity 0.25s ease,
-    width 0.3s ease;
+  transition: transform 0.35s cubic-bezier(0.23,1,0.32,1),
+              opacity 0.25s ease,
+              width 0.3s ease;
   transform-origin: center;
+  /*Isso eu pedi pra I.a. me ensinar, porque é util mas eu não estava sabendo fazer do jeito que o Gilmar ensinou*/
 }
 
-.hamburger.is-open .bar:nth-child(1) {
-  transform: translateY(7px) rotate(45deg);
-}
+.hamburger.is-open .bar:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.is-open .bar:nth-child(2) { opacity: 0; width: 0; }
+.hamburger.is-open .bar:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-.hamburger.is-open .bar:nth-child(2) {
-  opacity: 0;
-  width: 0;
-}
 
-.hamburger.is-open .bar:nth-child(3) {
-  transform: translateY(-7px) rotate(-45deg);
-}
-
-/* Menu mobile dropdown */
 .nav-menu {
-  background-color: #163d31;
+  background-color: var(--cor-header-dark);
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  transition: max-height 0.4s cubic-bezier(0.23,1,0.32,1);
   display: flex;
   flex-direction: column;
 }
 
-.nav-menu.is-open {
-  max-height: 300px;
-}
+.nav-menu.is-open { max-height: 300px; }
 
 .nav-menu a {
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba(255,255,255,0.85);
   text-decoration: none;
   padding: 12px 24px;
   font-size: 15px;
   transition: background 0.15s, color 0.15s;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
 }
 
 .nav-menu a:hover {
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(255,255,255,0.08);
   color: #fff;
 }
 
@@ -155,28 +160,24 @@ main {
 }
 
 /* ===========================
-   SEÇÃO ÚNICA — layout lado a lado
-   esquerda: título + botões | direita: texto longo
+   SEÇÃO PRINCIPAL — lado a lado
    =========================== */
 .principalTexto {
   display: flex;
   gap: 24px;
   align-items: stretch;
   margin-bottom: 80px;
-  /* espaço pro footer fixo */
 }
 
-/* Coluna esquerda*/
 .principal-texto {
   flex: 0 0 360px;
-  /* largura fixa no desktop */
   background: rgba(255, 255, 255, 0.18);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(255, 255, 255, 0.35);
   border-radius: 12px;
   padding: 32px 28px;
-  box-shadow: 0 4px 28px rgba(0, 0, 0, 0.18);
+  box-shadow: 0 4px 28px rgba(0,0,0,0.18);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -186,7 +187,7 @@ main {
   color: #fff;
   font-size: clamp(1.4rem, 2.5vw, 2rem);
   margin-bottom: 10px;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+  text-shadow: 0 2px 8px rgba(0,0,0,0.45);
   line-height: 1.2;
 }
 
@@ -194,28 +195,26 @@ main {
   color: #fff;
   font-size: 1rem;
   margin-bottom: 24px;
-  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.4);
+  text-shadow: 0 1px 6px rgba(0,0,0,0.4);
   line-height: 1.5;
 }
 
-/* Coluna direita: texto descritivo */
 .content-section {
   flex: 1;
-  /* ocupa o restante da largura */
   background: rgba(255, 255, 255, 0.18);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(255, 255, 255, 0.35);
   border-radius: 12px;
   padding: 32px 28px;
-  box-shadow: 0 4px 28px rgba(0, 0, 0, 0.18);
+  box-shadow: 0 4px 28px rgba(0,0,0,0.18);
 }
 
 .content-section h2 {
   color: #fff;
   font-size: clamp(1.2rem, 2vw, 1.5rem);
   margin-bottom: 16px;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+  text-shadow: 0 2px 8px rgba(0,0,0,0.45);
 }
 
 .content-section p {
@@ -223,12 +222,10 @@ main {
   line-height: 1.75;
   margin-bottom: 14px;
   font-size: 0.97rem;
-  text-shadow: 0 1px 5px rgba(0, 0, 0, 0.4);
+  text-shadow: 0 1px 5px rgba(0,0,0,0.4);
 }
 
-.content-section p:last-child {
-  margin-bottom: 0;
-}
+.content-section p:last-child { margin-bottom: 0; }
 
 /* ===========================
    BOTÕES
@@ -248,15 +245,15 @@ main {
 }
 
 .btn-primary {
-  background-color: #163d31;
+  background-color: var(--cor-btn);
   color: #fff;
-  border: 2px solid #163d31;
+  border: 2px solid var(--cor-btn);
 }
 
 .btn-secondary {
-  background-color: rgba(255, 255, 255, 0.15);
+  background-color: rgba(255,255,255,0.15);
   color: #fff;
-  border: 2px solid rgba(255, 255, 255, 0.6);
+  border: 2px solid rgba(255,255,255,0.6);
 }
 
 .btn-primary:hover,
@@ -269,7 +266,7 @@ main {
    FOOTER
    =========================== */
 footer {
-  background-color: #1B4D3E;
+  background-color: var(--cor-footer);
   color: #fff;
   padding: 12px 20px;
   text-align: center;
@@ -289,68 +286,27 @@ footer p {
 /* ===========================
    RESPONSIVIDADE
    =========================== */
-
-/* Tablet: até 900px — empilha os dois blocos */
 @media (max-width: 900px) {
-  .principalTexto {
-    flex-direction: column;
-  }
-
-  .principal-texto {
-    flex: none;
-    width: 100%;
-  }
+  .principalTexto { flex-direction: column; }
+  .principal-texto { flex: none; width: 100%; }
 }
 
-/* Tablet menor: até 768px — hamburguer */
 @media (max-width: 768px) {
-  .nav-desktop {
-    display: none;
-  }
-
-  .hamburger {
-    display: flex;
-  }
-
-  .navbar {
-    padding: 6px 16px;
-  }
-
-  .logotipo {
-    height: 58px;
-  }
-
-  main {
-    padding: 14px;
-  }
-
-  .principalTexto {
-    gap: 16px;
-  }
-
+  .nav-desktop { display: none; }
+  .hamburger   { display: flex; }
+  .navbar      { padding: 6px 16px; }
+  .logotopo    { height: 58px; }
+  main         { padding: 14px; }
+  .principalTexto { gap: 16px; }
   .principal-texto,
-  .content-section {
-    padding: 22px 18px;
-  }
-
+  .content-section { padding: 22px 18px; }
   .btn-primary,
-  .btn-secondary {
-    font-size: 13px;
-  }
+  .btn-secondary   { font-size: 13px; }
 }
 
-/* Mobile pequeno: até 480px */
 @media (max-width: 480px) {
-  .logotopo {
-    height: 48px;
-  }
-
-  .principal-texto h1 {
-    font-size: 1.3rem;
-  }
-
+  .logotopo { height: 48px; }
+  .principal-texto h1 { font-size: 1.3rem; }
   .principal-texto,
-  .content-section {
-    padding: 18px 14px;
-  }
+  .content-section { padding: 18px 14px; }
 }
