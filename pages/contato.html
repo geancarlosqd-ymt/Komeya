@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,33 +8,38 @@
     <link rel="stylesheet" href="/grupo/Komeya/css/style.css">
     <title>Contato</title>
 </head>
+
 <body>
     <header>
         <div class="navbar">
-            <img 
-                src="/grupo/Komeya/image/Horizontal2.png"
-                alt="Logotipo"
-                class="logotipo"
-                width="100"
-                height="100"
-            />
-            <button
-                class="hamburger"
-                id="btn"
-                aria-label="Abrir menu"
-                aria-expanded="false"
-                onclick="toggleMenu()">
+            <!-- Logo clicável, alinhada à esquerda -->
+            <a href="index.html" class="logo-link">
+                <img src="../image/Horizontal2.png" alt="Logotipo Komeya" class="logotopo">
+            </a>
+
+            <nav class="nav-desktop" aria-label="Navegação principal">
+                <a href="../index.html">Início</a>
+                <a href="../pages/sobre.html">Sobre</a>
+                <a href="../pages/serviços.html">Serviços</a>
+                <a href="../pages/contato.html">Contato</a>
+                <a href="../pages/marketing.html">Marketing</a>
+            </nav>
+
+            <button class="hamburger" id="btn" aria-label="Abrir menu" aria-expanded="false" onclick="toggleMenu()">
+                <span class="bar"></span>
                 <span class="bar"></span>
                 <span class="bar"></span>
                 <span class="bar"></span>
             </button>
         </div>
-        <nav class="nav-menu" id="menu" aria-hidden="true">
+
+        <div class="nav-menu" id="menu" aria-hidden="true">
             <a href="../index.html">Início</a>
             <a href="../pages/sobre.html">Sobre</a>
             <a href="../pages/serviços.html">Serviços</a>
             <a href="../pages/contato.html">Contato</a>
-        </nav>
+            <a href="../pages/marketing.html">Marketing</a>
+        </div>
     </header>
 
     <footer>
@@ -41,4 +47,5 @@
     </footer>
     <script src="../js/script.js" defer></script>
 </body>
+
 </html>
