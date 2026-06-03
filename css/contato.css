@@ -1,0 +1,163 @@
+.contato-body main{
+    padding: 0;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+/* ===========================
+   CONTATO
+   =========================== */
+.contato-section {
+    background: #0d2318;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    padding: 50px 40px 110px;   
+}
+.contato-section .contato-center {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    width: 100%;
+    gap: 60px;
+    align-items: flex-start;
+
+}
+/*===========================
+   CONTATO - TABELA ESQUERDA
+   =========================== */
+.contato-section .contato-center .tabelaEsq{
+    flex: 0 0 380px;
+    color: #fff;
+}
+.contato-section .contato-center .tabelaEsq h2{
+    font-size: 2.4rem;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 10px;
+    line-height: 1.1;
+}
+
+.contato-info-list {
+    dislay: flex;
+    flex-direction: column;
+    gap: 22px;
+    margin-bottom: 36px;
+}
+.contato-info-item {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+}
+.contato-info-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.contato-info-icon svg {
+    width: 20px;
+    height: 20px;
+    
+}
+.contato-info-text strong {
+    display: block;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+}
+.contato-info-text p {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.4;
+}
+/*===========================
+   CONTATO - BOTÕES
+   =========================== */
+.contato-buttons {
+    display: flex;
+    gap: 12px;
+}
+.button-wpp{
+flex: 1;
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 8px;
+padding: 13px 16px;
+background: #25D366;
+color : white;
+border-radius: 10px;
+text-decoration: none;
+font-weight: 700;
+font-size: 0.9rem;
+trasition: opacity 0.2 transform 0.15s;
+}
+.button-wpp:hover{
+    opacity: 0.88;
+    transform: translateY(-2px);
+}
+.button-ig{
+flex: 1;
+display: flex;
+align-items: center;
+justify-content: center;
+padding: 13px 16px;
+gap: 8px;
+background: RED;
+COLOR: #fff;
+border-radius: 8px;
+text-decoration: none;
+font-weight: 600;
+FONT-SIZE: 0.9rem;
+trasition: opacity 0.2 transform 0.2s;
+}
+.button-ig:hover{
+    opacity: 0.88;
+    transform: translateY(-2px);
+}
+/*===========================
+   CONTATO - MAPA
+   =========================== */
+.contatomapa {
+    flex: 1;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1.5px solid rgba(255,255,255,0.8);
+    box-shadow: 0 8px 40px rgba(0,0,0,0.4);
+}
+.contatomapa iframe {
+    width: 100%;
+    height: 390px;
+    display: block;
+    border: 0;
+}
+/* ===========================
+   CONTATO - RESPONSIVO
+   =========================== */
+@media (max-width: 900px) {
+    .contato-section {
+        padding: 40px 20px 80px;
+    }
+    .contato-section .contato-center {
+        flex-direction: column;
+        gap: 30px;
+    }
+    .contato-section .contato-center .tabelaEsq {
+        width: 100%;
+        text-align: center;
+    }
+    .contato-buttons {
+        justify-content: center;
+    }
+    .contatomapa {
+        width: 100%;
+        height: 300px;
+    }
+}

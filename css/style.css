@@ -157,6 +157,9 @@ main {
   max-width: 1200px;
   margin: 0 auto;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 /* ===========================
@@ -170,6 +173,7 @@ main {
 }
 
 .principal-texto {
+  margin: auto 0;
   flex: 0 0 360px;
   background: rgba(255, 255, 255, 0.18);
   backdrop-filter: blur(16px);
@@ -199,33 +203,7 @@ main {
   line-height: 1.5;
 }
 
-.content-section {
-  flex: 1;
-  background: rgba(255, 255, 255, 0.18);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.35);
-  border-radius: 12px;
-  padding: 32px 28px;
-  box-shadow: 0 4px 28px rgba(0,0,0,0.18);
-}
 
-.content-section h2 {
-  color: #fff;
-  font-size: clamp(1.2rem, 2vw, 1.5rem);
-  margin-bottom: 16px;
-  text-shadow: 0 2px 8px rgba(0,0,0,0.45);
-}
-
-.content-section p {
-  color: #fff;
-  line-height: 1.75;
-  margin-bottom: 14px;
-  font-size: 0.97rem;
-  text-shadow: 0 1px 5px rgba(0,0,0,0.4);
-}
-
-.content-section p:last-child { margin-bottom: 0; }
 
 /* ===========================
    BOTÕES
