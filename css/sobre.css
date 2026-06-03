@@ -2,21 +2,19 @@
    PÁGINA SOBRE
    =========================== */
 
-/* Fundo começa branco, transição para preto via JS */
+/* Fundo começa branco, transição para preto "Olhar no script.js" */
 body {
   background-image: none;
   background-color: #fff;
   transition: background-color 0.1s linear;
 }
 
-/* Suaviza a transição do header e footer nesta página */
-header, footer {
+header,
+footer {
   transition: background-color 0.1s linear;
 }
 
-/* ===========================
-   DIVISOR CENTRAL COM BOLINHA
-   =========================== */
+/* DIVISOR CENTRAL COM BOLINHA */
 .secao-divisor {
   position: relative;
   display: flex;
@@ -26,7 +24,7 @@ header, footer {
   padding: 0 20px;
 }
 
-/* Linha horizontal — gerada com pseudo-elementos para poder trocar de cor */
+/* Linha horizontal  */
 .secao-divisor::before,
 .secao-divisor::after {
   content: '';
@@ -69,16 +67,17 @@ body.dark-mode .divisor-ball {
   border-right: 7px solid transparent;
   border-top: 10px solid #fff;
   transition: border-top-color 0.1s linear;
-  margin-top: 2px; /* ajuste visual para centralizar a seta */
+  margin-top: 2px;
+  /* ajuste visual para centralizar a seta */
 }
 
 body.dark-mode .divisor-arrow {
   border-top-color: rgba(255, 255, 255, 0.85);
 }
 
-/* ===========================
+/* 
    LAYOUT DOS CARDS
-   =========================== */
+   */
 .container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -109,9 +108,9 @@ body.dark-mode .divisor-arrow {
   border-radius: 10px;
 }
 
-/* ===========================
+/* 
    CARD DE TEXTO
-   =========================== */
+    */
 .sobre-card {
   border-radius: 12px;
   padding: 40px 44px;
@@ -120,7 +119,7 @@ body.dark-mode .divisor-arrow {
   transition: background 0.3s, border-color 0.3s, box-shadow 0.3s;
   background: rgba(27, 77, 62, 0.06);
   border: 1px solid rgba(27, 77, 62, 0.15);
-  box-shadow: 0 4px 28px rgba(0,0,0,0.06);
+  box-shadow: 0 4px 28px rgba(0, 0, 0, 0.06);
 }
 
 body.dark-mode .sobre-card {
@@ -128,7 +127,7 @@ body.dark-mode .sobre-card {
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(255, 255, 255, 0.25);
-  box-shadow: 0 4px 28px rgba(0,0,0,0.3);
+  box-shadow: 0 4px 28px rgba(0, 0, 0, 0.3);
 }
 
 .sobre-card h1 {
@@ -141,7 +140,7 @@ body.dark-mode .sobre-card {
 
 body.dark-mode .sobre-card h1 {
   color: #fff;
-  text-shadow: 0 2px 8px rgba(0,0,0,0.45);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
 }
 
 .sobre-card p {
@@ -155,11 +154,13 @@ body.dark-mode .sobre-card h1 {
 }
 
 body.dark-mode .sobre-card p {
-  color: rgba(255,255,255,0.9);
-  text-shadow: 0 1px 5px rgba(0,0,0,0.4);
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0 1px 5px rgba(0, 0, 0, 0.4);
 }
 
-.sobre-card p:last-child { margin-bottom: 0; }
+.sobre-card p:last-child {
+  margin-bottom: 0;
+}
 
 .sobre-card strong {
   font-weight: bold;
@@ -167,7 +168,9 @@ body.dark-mode .sobre-card p {
   color: #1B4D3E;
 }
 
-body.dark-mode .sobre-card strong { color: #fff; }
+body.dark-mode .sobre-card strong {
+  color: #fff;
+}
 
 /* ===========================
    RESPONSIVIDADE
@@ -191,6 +194,11 @@ body.dark-mode .sobre-card strong { color: #fff; }
     padding: 18px 14px;
   }
 
-  .sobre-card h1 { font-size: 1.4rem; }
-  .sobre-card p  { font-size: 0.95rem; }
+  .sobre-card h1 {
+    font-size: 1.4rem;
+  }
+
+  .sobre-card p {
+    font-size: 0.95rem;
+  }
 }
