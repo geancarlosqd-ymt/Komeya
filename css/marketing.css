@@ -2,17 +2,25 @@ body {
     background-image: none;
 }
 
+#marketingh1 {
+    text-align: center;
+    margin: 20px;
+}
+
 #marketingDiv {
-    
-}
-
-#marketingFig {
-
-}
-
-#marketingSec {
     color: white;
     padding: 20px;
-    padding-bottom: 10%;
+   margin-bottom: 5%;
     background-color: #1B4D3E;
+}
+
+#marketingDiv p {
+    margin: 2%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#marketingFig img {
+    width: 100%;
+    height: auto;
+    display: block;
 }

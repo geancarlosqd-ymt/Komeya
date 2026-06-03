@@ -1,100 +1,191 @@
-/* Background próprio da página Sobre */
+/* ===========================
+   PÁGINA SOBRE
+   =========================== */
+
+/* Fundo começa branco, transição para preto "Olhar no script.js" */
 body {
-  background-image: url("../image/golden-health.jpg");
+  background-image: none;
+  background-color: #fff;
+  transition: background-color 0.1s linear;
 }
 
+header,
+footer {
+  transition: background-color 0.1s linear;
+}
+
+/* DIVISOR CENTRAL COM BOLINHA */
+.secao-divisor {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 32px 0;
+  padding: 0 20px;
+}
+
+/* Linha horizontal  */
+.secao-divisor::before,
+.secao-divisor::after {
+  content: '';
+  flex: 1;
+  height: 2px;
+  background-color: #1B4D3E;
+  transition: background-color 0.1s linear;
+}
+
+body.dark-mode .secao-divisor::before,
+body.dark-mode .secao-divisor::after {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+/* Bolinha central */
+.divisor-ball {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: #1B4D3E;
+  border: 2px solid #1B4D3E;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin: 0 16px;
+  transition: background-color 0.1s linear, border-color 0.1s linear;
+}
+
+body.dark-mode .divisor-ball {
+  background-color: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+/* Seta dentro da bolinha */
+.divisor-arrow {
+  width: 0;
+  height: 0;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-top: 10px solid #fff;
+  transition: border-top-color 0.1s linear;
+  margin-top: 2px;
+  /* ajuste visual para centralizar a seta */
+}
+
+body.dark-mode .divisor-arrow {
+  border-top-color: rgba(255, 255, 255, 0.85);
+}
+
+/* 
+   LAYOUT DOS CARDS
+   */
 .container {
   display: grid;
-  grid-template-columns: repeat(2, 2fr);
-  gap: 10px;
-  padding-bottom: 80px; /* espaço pro footer fixo */
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
+.container:last-child {
+  padding-bottom: 80px;
+}
 
 .item {
+  border-radius: 10px;
   display: flex;
   flex-direction: column;
 }
 
-.sobre-card {
-  background: rgba(255, 255, 255, 0.18);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.35);
-  border-radius: 12px;
-  padding: 40px 44px;
-  max-width: 860px;
-  margin: 0 auto 80px auto; /* 80px = espaço pro footer fixo */
-  box-shadow: 0 4px 28px rgba(0,0,0,0.18);
-}
-
-.sobre-card h1 {
-  color: #fff;
-  font-size: clamp(1.6rem, 3vw, 2.2rem);
-  margin-bottom: 20px;
-  text-shadow: 0 2px 8px rgba(0,0,0,0.45);
-}
-
-.sobre-card p {
-  color: #fff;
-  line-height: 1.8;
-  margin-bottom: 14px;
-  font-size: 1rem;
-  text-shadow: 0 1px 5px rgba(0,0,0,0.4);
-  text-align: justify;
-}
-
-.sobre-card p:last-child { margin-bottom: 0; }
-
-.sobre-card strong {
-  color: #fff;
-  font-weight: bold;
-}
-
-.container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-.item {
-    opacity: 80%;
-    border-radius: 10px;
-}
-
 .item figure {
-    margin: 0;
+  margin: 0;
 }
 
 .item img {
-    width: 100%;
-    object-fit: cover;
-    display: block;
+  width: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 10px;
 }
 
-.item, h1, h2, h3 {
-  opacity: 100%;
+/* 
+   CARD DE TEXTO
+    */
+.sobre-card {
+  border-radius: 12px;
+  padding: 40px 44px;
+  max-width: 860px;
+  margin: 0 auto;
+  transition: background 0.3s, border-color 0.3s, box-shadow 0.3s;
+  background: rgba(27, 77, 62, 0.06);
+  border: 1px solid rgba(27, 77, 62, 0.15);
+  box-shadow: 0 4px 28px rgba(0, 0, 0, 0.06);
 }
 
-/* Responsivo */
+body.dark-mode .sobre-card {
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 4px 28px rgba(0, 0, 0, 0.3);
+}
 
+.sobre-card h1 {
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  margin-bottom: 20px;
+  transition: color 0.3s, text-shadow 0.3s;
+  color: #1B4D3E;
+  text-shadow: none;
+}
+
+body.dark-mode .sobre-card h1 {
+  color: #fff;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+}
+
+.sobre-card p {
+  line-height: 1.8;
+  margin-bottom: 14px;
+  font-size: 1rem;
+  text-align: justify;
+  transition: color 0.3s, text-shadow 0.3s;
+  color: #333;
+  text-shadow: none;
+}
+
+body.dark-mode .sobre-card p {
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0 1px 5px rgba(0, 0, 0, 0.4);
+}
+
+.sobre-card p:last-child {
+  margin-bottom: 0;
+}
+
+.sobre-card strong {
+  font-weight: bold;
+  transition: color 0.3s;
+  color: #1B4D3E;
+}
+
+body.dark-mode .sobre-card strong {
+  color: #fff;
+}
+
+/* ===========================
+   RESPONSIVIDADE
+   =========================== */
 @media (max-width: 768px) {
-    .container {
-        grid-template-columns: 1fr;
-    }
+  .container {
+    grid-template-columns: 1fr;
+  }
 
-    .item figure{
-      margin-bottom: 50%;
-    }
-}
-
-@media (max-width: 768px) {
   .sobre-card {
     padding: 24px 20px;
-    margin-bottom: 70px;
+  }
+
+  .secao-divisor {
+    margin: 24px 0;
   }
 }
 
@@ -103,18 +194,11 @@ body {
     padding: 18px 14px;
   }
 
-  .sobre-card h1 { font-size: 1.4rem; }
-  .sobre-card p  { font-size: 0.95rem; }
-}
-
-@media (max-width: 560px) {
-  .container {
-    grid-template-columns: 1fr;
-    gap: 16px;
+  .sobre-card h1 {
+    font-size: 1.4rem;
   }
 
-  .item figure {
-    height: 160px;
+  .sobre-card p {
+    font-size: 0.95rem;
   }
-
 }
