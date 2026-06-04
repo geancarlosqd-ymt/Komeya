@@ -114,8 +114,7 @@ document.addEventListener('click', (e) => {
 
     // LÓGICA DO MODAL
 
-    const divCirurgia = document.getElementById("div-cirurgia");
-    const divHigienização = document.getElementById("div-higienizacao");
+    const divExtra = document.getElementById("div-extra");
     let servicoAtual = "";
 
     function abrirModal(nomeServico) {
@@ -127,15 +126,15 @@ document.addEventListener('click', (e) => {
       document.getElementById("resultado").style.display = "none";
 
       if(servicoAtual === "Cirurgia"){
-        divCirurgia.innerHTML = `        
+        divExtra.innerHTML = `        
         <label for="">Cirurgia</label>
         <select id="sel-tipo-cirurgia">Selecione o tipo de Cirurgia</select>`;
       }
 
       if(servicoAtual === "Higienização"){
-        divHigienização.innerHTML = `        
+        divExtra.innerHTML = `        
         <label for="">Higienização</label>
-        <select id="sel-tipo-cirurgia">Selecione o tipo de Higienização</select>`;
+        <select id="sel-tipo-higenização">Selecione o tipo de Higienização</select>`;
       }
 
       const overlay = document.getElementById("modal-overlay");
@@ -146,8 +145,7 @@ document.addEventListener('click', (e) => {
     function fecharModal() {
       document.getElementById("modal-overlay").classList.remove("active");
       document.body.style.overflow = "";
-      divCirurgia.innerHTML = ``;
-      divHigienização.innerHTML = ``;
+      divExtra.innerHTML = ``;
     }
 
     // Fecha ao clicar fora do modal
@@ -182,6 +180,8 @@ document.addEventListener('click', (e) => {
     }
 
     function calcular() {
+      const divCirirgia = document.getElementById("sel-tipo-higenização").value || "A";
+      const divHigeniza = document.getElementById("sel-tipo-cirurgia").value || "A";
       const especie = document.getElementById("sel-especie").value;
       const raca    = document.getElementById("sel-raca").value;
       const peso    = parseFloat(document.getElementById("inp-peso").value);
