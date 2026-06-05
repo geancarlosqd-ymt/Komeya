@@ -66,150 +66,228 @@ document.addEventListener('click', (e) => {
   window.addEventListener('scroll', onScroll, { passive: true });
 })();
 
+// LÓGICA DO MODAL
 
-  //PARTE DOS SERVIÇOS
+let servicoAtual = "";
 
-  // ══════════════════════════════════════════════════
-    // CONFIGURAÇÕES — EDITE POR AQUI
-    // ══════════════════════════════════════════════════
+const servicos = {
+  "Consulta Veterinária": {
+    cachorro: [
+      ["Consulta clínica geral", "R$ 120"],
+      ["Retorno (até 15 dias)", "R$ 60"],
+      ["Consulta de emergência", "R$ 180"],
+      ["Consulta domiciliar", "R$ 220"],
+      ["Consulta geriátrica", "R$ 140"],
+      ["Consulta nutricional", "R$ 110"],
+      ["Consulta comportamental", "R$ 130"],
+      ["Eutanásia humanizada", "R$ 280"]
+    ],
+    gato: [
+      ["Consulta clínica geral", "R$ 110"],
+      ["Retorno (até 15 dias)", "R$ 55"],
+      ["Consulta de emergência", "R$ 160"],
+      ["Consulta domiciliar", "R$ 200"],
+      ["Consulta geriátrica", "R$ 130"],
+      ["Consulta nutricional", "R$ 105"],
+      ["Consulta comportamental", "R$ 120"],
+      ["Eutanásia humanizada", "R$ 230"]
+    ]
+  },
 
-    
-    const WA_NUMERO = "5531992824699"; 
+  "Vacinação": {
+    cachorro: [
+      ["Vacina V10", "R$ 90"],
+      ["Vacina Antirrábica", "R$ 55"],
+      ["Vacina Gripe / Bordetella", "R$ 65"],
+      ["Vacina Giárdia" , "R$ 70"],
+      ["Vacina Leishmaniose" , "R$ 180"],
+      ["Vacina FeLV" , "--"],
+      ["Vacina FIV" , "--"],
+      ["Vacina Calicivírus" , "R$ --"],
+      ["Vermifugação" , "R$ 45"],
+      ["Antipulgas e carrapatos (dose)" , "R$ 55"],
+      ["Microchip (identificação)" , "R$ 90"]
+    ],
+    gato: [
+      ["Vacina V10", "R$ 75"],
+      ["Vacina Antirrábica", "R$ 50"],
+      ["Vacina Gripe / Bordetella", "--"],
+      ["Vacina Giárdia" , "--"],
+      ["Vacina Leishmaniose" , "--"],
+      ["Vacina FeLV" , "R$ 80"],
+      ["Vacina FIV" , "R$ 90"],
+      ["Vacina Calicivírus" , "R$ 65"],
+      ["Vermifugação" , "R$ 40"],
+      ["Antipulgas e carrapatos (dose)" , "R$ 50"],
+      ["Microchip (identificação)" , "R$ 90"]
+    ]
+  },
 
-    // Raças por espécie
-    const RACAS = {
-      cachorro: [
-        "Labrador", "Golden Retriever", "Bulldog", "Poodle",
-        "Shih Tzu", "Yorkshire", "Pastor Alemão", "Beagle",
-        "Lulu da Pomerânia", "Dachshund", "SRD (Vira-lata)"
-      ],
-      gato: [
-        "Persa", "Siamês", "Maine Coon", "Ragdoll",
-        "Bengal", "British Shorthair", "Angorá", "SRD (Vira-lata)"
-      ]
-    };
+  "Cirurgia": {
+    cachorro: [
+      ["Castração macho", "R$ 520"],
+      ["Castração fêmea", "R$ 670"],
+      ["Cesariana", "R$ 1000"],
+      ["Cirurgia ortopédica", "R$ 2000"],
+      ["Cirurgia urinária (obstrução)", "--"],
+      ["Cirurgia dentária (extração)", "R$ 500"],
+      ["Cirurgia de hérnia", "R$ 1400"],
+      ["Cirurgia gastrointestinal", "R$ 2000"],
+      ["Cirurgia ocular", "R$ 1600"],
+      ["Cirurgia de tumor (pequeno)", "R$ 1100"],
+      ["Cirurgia de tumor (grande)", "R$ 2200"],
+      ["Amputação de membro", "R$ 1800"]
+    ],
+    gato: [
+      ["Castração macho", "R$ 380"],
+      ["Castração fêmea", "R$ 500"],
+      ["Cesariana", "R$ 880"],
+      ["Cirurgia ortopédica", "--"],
+      ["Cirurgia urinária (obstrução)", "R$ 1500"],
+      ["Cirurgia dentária (extração)", "R$ 460"],
+      ["Cirurgia de hérnia", "R$ 1200"],
+      ["Cirurgia gastrointestinal", "R$ 1800"],
+      ["Cirurgia ocular", "--"],
+      ["Cirurgia de tumor (pequeno)", "R$ 950"],
+      ["Cirurgia de tumor (grande)", "R$ 1900"],
+      ["Amputação de membro", "R$ 1600"]
+    ]
+  },
 
-    // Tabela de preços base por serviço + espécie
-    // Fórmula: preço = base + (peso x fator)
-    const PRECOS = {
-      "Consulta Veterinária": {
-        cachorro: { base: 120, fator: 2 },
-        gato:     { base: 110, fator: 1.5 }
-      },
-      "Vacinação": {
-        cachorro: { base: 80,  fator: 1 },
-        gato:     { base: 70,  fator: 0.8 }
-      },
-      "Cirurgia": {
-        cachorro: { base: 600, fator: 20 },
-        gato:     { base: 500, fator: 15 }
-      },
-      // Serviços ainda sem nome
-      "Higienização": {
-        cachorro: { base: 100, fator: 2 },
-        gato:     { base: 90,  fator: 1.5 }
-      }
-    };
+  "Higienização": {
+    cachorro: [
+      ["Banho", "R$ 70"],
+      ["Banho + Tosa", "R$ 115"]
+    ],
+    gato: [
+      ["Banho", "R$ 65"],
+      ["Banho + Tosa", "R$ 100"]
+    ]
+  },
 
+  "Exames": {
+    cachorro: [
+      ["Hemograma completo", "R$ 90"],
+      ["Bioquímica sérica (perfil)", "R$ 130"],
+      ["Ultrassom abdominal", "R$ 210"],
+      ["Raio-X (1 projeção)", "R$ 125"],
+      ["Raio-X (2 projeções)", "R$ 180"],
+      ["Eletrocardiograma",	"R$ 160"],
+      ["Ecocardiograma", "R$ 270"],
+      ["Endoscopia",	"R$ 500"],
+      ["Tomografia (TC)", "R$ 1.200"],
+      ["Exame de fezes", "R$ 45"],
+      ["Exame de urina (EAS)", "R$ 50"],
+      ["Teste FIV/FeLV", "--"],
+      ["Citologia",	"R$ 130"],
+      ["Teste de alergia cutânea", "R$ 180"],
+      ["Pesquisa de hemoparasitas",	"R$ 80"]
+    ],
+    gato: [
+      ["Hemograma completo", "R$ 85"],
+      ["Bioquímica sérica (perfil)", "R$ 120"],
+      ["Ultrassom abdominal", "R$ 190"],
+      ["Raio-X (1 projeção)", "R$ 115"],
+      ["Raio-X (2 projeções)", "R$ 165"],
+      ["Eletrocardiograma",	"R$ 150"],
+      ["Ecocardiograma", "R$ 260"],
+      ["Endoscopia",	"R$ 480"],
+      ["Tomografia (TC)", "R$ 1.100"],
+      ["Exame de fezes", "R$ 40"],
+      ["Exame de urina (EAS)", "R$ 45"],
+      ["Teste FIV/FeLV", "120"],
+      ["Citologia",	"120"],
+      ["Teste de alergia cutânea", "--"],
+      ["Pesquisa de hemoparasitas",	"R$ 75"]
+    ]
+  },
 
-    // LÓGICA DO MODAL
+  "Diagnosticos": {
+    cachorro: [
+      ["Fisioterapia (sessão)", "R$ 130"],
+      ["Acupuntura (sessão)", "R$ 150"],
+      ["Hidroterapia (sessão)", "R$ 120"],
+      ["Laserterapia (sessão)", "R$ 100"],
+      ["Quimioterapia (sessão)", "R$ 600"],
+      ["Ozonoterapia (sessão)", "R$ 110"],
+      ["Homeopatia (consulta)", "R$ 100"]
+    ],
+    gato: [
+      ["Fisioterapia (sessão)", "R$ 120"],
+      ["Acupuntura (sessão)", "R$ 140"],
+      ["Hidroterapia (sessão)", "--"],
+      ["Laserterapia (sessão)", "R$ 90"],
+      ["Quimioterapia (sessão)", "R$ 550"],
+      ["Ozonoterapia (sessão)", "R$ 100"],
+      ["Homeopatia (consulta)", "R$ 95"]
+    ]
+  }
+};
 
-    const divExtra = document.getElementById("div-extra");
-    let servicoAtual = "";
+function abrirModal(nomeServico) {
+  servicoAtual = nomeServico;
+  document.getElementById("modal-servico-nome").textContent = nomeServico;
+  document.getElementById("sel-especie").value = "";
 
-    function abrirModal(nomeServico) {
-      servicoAtual = nomeServico;
-      document.getElementById("modal-servico-nome").textContent = nomeServico;
-      document.getElementById("sel-especie").value = "";
-      document.getElementById("sel-raca").innerHTML = '<option value="">Selecione a espécie primeiro…</option>';
-      document.getElementById("inp-peso").value = "";
-      document.getElementById("resultado").style.display = "none";
+  const overlay = document.getElementById("modal-overlay");
+  overlay.classList.add("active");
+  document.body.style.overflow = "hidden";
+}
 
-      if(servicoAtual === "Cirurgia"){
-        divExtra.innerHTML = `        
-        <label for="">Cirurgia</label>
-        <select id="sel-tipo-cirurgia">Selecione o tipo de Cirurgia</select>`;
-      }
+function fecharModal() {
+  document.getElementById("modal-overlay").classList.remove("active");
+  document.body.style.overflow = "";
+  resultado.innerHTML = ``;
+  resultado.style = ``;
+}
 
-      if(servicoAtual === "Higienização"){
-        divExtra.innerHTML = `        
-        <label for="">Higienização</label>
-        <select id="sel-tipo-higenização">Selecione o tipo de Higienização</select>`;
-      }
+// Fecha ao clicar fora do modal
+document.getElementById("modal-overlay").addEventListener("click", function (e) {
+  if (e.target === this) fecharModal();
+});
 
-      const overlay = document.getElementById("modal-overlay");
-      overlay.classList.add("active");
-      document.body.style.overflow = "hidden";
-    }
+// Fecha com ESC
+document.addEventListener("keydown", function (e) {
+  if (e.key === "Escape") fecharModal();
+});
 
-    function fecharModal() {
-      document.getElementById("modal-overlay").classList.remove("active");
-      document.body.style.overflow = "";
-      divExtra.innerHTML = ``;
-    }
+function atualizarRacas() {
+  const especie = document.getElementById("sel-especie").value;
+  const resultado = document.getElementById("resultado");
 
-    // Fecha ao clicar fora do modal
-    document.getElementById("modal-overlay").addEventListener("click", function(e) {
-      if (e.target === this) fecharModal();
-    });
+  if (!especie) {
+    resultado.style.display = "none";
+    resultado.innerHTML = "";
+    return;
+  }
 
-    // Fecha com ESC
-    document.addEventListener("keydown", function(e) {
-      if (e.key === "Escape") fecharModal();
-    });
+  const lista = servicos[servicoAtual][especie];
 
-    function atualizarRacas() {
-      const especie = document.getElementById("sel-especie").value;
-      const sel = document.getElementById("sel-raca");
-      sel.innerHTML = "";
+  let html = `
+    <table style="width:100%; border-collapse:collapse;">
+      <thead>
+        <tr>
+          <th style="text-align:left;">Serviço</th>
+          <th>Preço</th>
+        </tr>
+      </thead>
+      <tbody>
+  `;
 
-      if (!especie) {
-        sel.innerHTML = '<option value="">Selecione a espécie primeiro…</option>';
-        return;
-      }
+  lista.forEach(item => {
+    html += `
+      <tr>
+        <td>${item[0]}</td>
+        <td style="text-align:center">${item[1]}</td>
+      </tr>
+    `;
+  });
 
-      sel.innerHTML = '<option value="">Selecione a raça…</option>';
-      (RACAS[especie] || []).forEach(r => {
-        const opt = document.createElement("option");
-        opt.value = r;
-        opt.textContent = r;
-        sel.appendChild(opt);
-      });
+  html += `
+      </tbody>
+    </table>
+  `;
 
-      document.getElementById("resultado").style.display = "none";
-    }
-
-    function calcular() {
-      const divCirirgia = document.getElementById("sel-tipo-higenização").value || "A";
-      const divHigeniza = document.getElementById("sel-tipo-cirurgia").value || "A";
-      const especie = document.getElementById("sel-especie").value;
-      const raca    = document.getElementById("sel-raca").value;
-      const peso    = parseFloat(document.getElementById("inp-peso").value);
-
-      if (!especie) { alert("Por favor, selecione a espécie."); return; }
-      if (!raca)    { alert("Por favor, selecione a raça."); return; }
-      if (!peso || peso <= 0) { alert("Por favor, informe um peso válido."); return; }
-
-      // Busca tabela do serviço
-      const tabela = PRECOS[servicoAtual] || PRECOS["_default"];
-      const cfg    = tabela[especie] || { base: 100, fator: 2 };
-
-      const valor = cfg.base + (peso * cfg.fator);
-      const min   = Math.floor(valor * 0.9);
-      const max   = Math.ceil(valor * 1.1);
-
-      // Exibe resultado
-      document.getElementById("res-valor-texto").textContent =
-        `R$ ${min.toFixed(0)} – R$ ${max.toFixed(0)}`;
-      document.getElementById("res-obs-texto").textContent =
-        `Estimativa para ${especie} (${raca}) de ${peso} kg. Valor exato confirmado na consulta.`;
-
-      const msg = encodeURIComponent(
-        `Olá! Gostaria de agendar *${servicoAtual}* para meu(minha) ${especie} da raça ${raca}, com ${peso} kg.\n` +
-        `Vi a estimativa de R$ ${min}–R$ ${max} no site. Poderia confirmar disponibilidade?`
-      );
-      document.getElementById("btn-whatsapp").href =
-        `https://wa.me/${WA_NUMERO}?text=${msg}`;
-
-      document.getElementById("resultado").style.display = "block";
-    }
+  resultado.innerHTML = html;
+  resultado.style.display = "block";
+}
