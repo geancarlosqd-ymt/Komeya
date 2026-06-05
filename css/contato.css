@@ -39,7 +39,7 @@
 }
 
 .contato-info-list {
-    dislay: flex;
+    display: flex;
     flex-direction: column;
     gap: 22px;
     margin-bottom: 36px;
@@ -63,19 +63,19 @@
 .contato-info-icon svg {
     width: 20px;
     height: 20px;
-    
+    stroke: #6fcfa0;
 }
 .contato-info-text strong {
     display: block;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 1.2px;
     margin-bottom: 4px;
 }
 .contato-info-text p {
     font-size: 0.9rem;
     color: rgba(255, 255, 255, 0.8);
-    line-height: 1.4;
+    line-height: 1.55;
 }
 /*===========================
    CONTATO - BOTÕES
@@ -97,7 +97,7 @@ border-radius: 10px;
 text-decoration: none;
 font-weight: 700;
 font-size: 0.9rem;
-trasition: opacity 0.2 transform 0.15s;
+transition: opacity 0.2 transform 0.15s;
 }
 .button-wpp:hover{
     opacity: 0.88;
@@ -116,7 +116,7 @@ border-radius: 8px;
 text-decoration: none;
 font-weight: 600;
 FONT-SIZE: 0.9rem;
-trasition: opacity 0.2 transform 0.2s;
+transition: opacity 0.2 transform 0.2s;
 }
 .button-ig:hover{
     opacity: 0.88;
@@ -150,6 +150,7 @@ trasition: opacity 0.2 transform 0.2s;
         gap: 30px;
     }
     .contato-section .contato-center .tabelaEsq {
+        flex: none;
         width: 100%;
         text-align: center;
     }
@@ -159,5 +160,8 @@ trasition: opacity 0.2 transform 0.2s;
     .contatomapa {
         width: 100%;
         height: 300px;
+    }
+    .contatomapa iframe {
+        height: 280px;
     }
 }
