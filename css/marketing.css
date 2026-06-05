@@ -10,12 +10,10 @@ body {
 #marketingDiv {
     color: white;
     padding: 20px;
-   margin-bottom: 5%;
     background-color: #1B4D3E;
 }
 
 #marketingDiv p {
-    margin: 2%;
     font-family: Arial, Helvetica, sans-serif;
 }
 

@@ -15,10 +15,12 @@
       transition: transform 0.2s ease, box-shadow 0.2s ease;
       position: relative;
     }
+
     .item:hover {
       transform: translateY(-4px);
-      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
     }
+
     .item::after {
       content: "Ver preços →";
       display: block;
@@ -30,21 +32,23 @@
       opacity: 0;
       transition: opacity 0.2s ease;
     }
+
     .item:hover::after {
       opacity: 1;
     }
 
-  
+
     #modal-overlay {
       display: none;
       position: fixed;
       inset: 0;
-      background: rgba(0,0,0,0.55);
+      background: rgba(0, 0, 0, 0.55);
       backdrop-filter: blur(3px);
       z-index: 9000;
       align-items: center;
       justify-content: center;
     }
+
     #modal-overlay.active {
       display: flex;
     }
@@ -55,18 +59,27 @@
       border-radius: 16px;
       width: min(480px, 94vw);
       padding: 36px 32px 28px;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
       position: relative;
-      animation: modalIn 0.25s cubic-bezier(0.34,1.56,0.64,1) both;
+      animation: modalIn 0.25s cubic-bezier(0.34, 1.56, 0.64, 1) both;
     }
+
     @keyframes modalIn {
-      from { opacity:0; transform: scale(0.88) translateY(16px); }
-      to   { opacity:1; transform: scale(1) translateY(0); }
+      from {
+        opacity: 0;
+        transform: scale(0.88) translateY(16px);
+      }
+
+      to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+      }
     }
 
     #modal-close {
       position: absolute;
-      top: 14px; right: 18px;
+      top: 14px;
+      right: 18px;
       background: none;
       border: none;
       font-size: 1.5rem;
@@ -75,13 +88,17 @@
       line-height: 1;
       transition: color 0.15s;
     }
-    #modal-close:hover { color: #c0392b; }
+
+    #modal-close:hover {
+      color: #c0392b;
+    }
 
     #modal h2 {
       margin: 0 0 6px;
       font-size: 1.25rem;
       color: #1b5e20;
     }
+
     #modal .modal-subtitle {
       font-size: 0.85rem;
       color: #777;
@@ -91,6 +108,7 @@
     .modal-field {
       margin-bottom: 16px;
     }
+
     .modal-field label {
       display: block;
       font-size: 0.78rem;
@@ -100,6 +118,7 @@
       color: #444;
       margin-bottom: 6px;
     }
+
     .modal-field select,
     .modal-field input[type="number"] {
       width: 100%;
@@ -113,6 +132,7 @@
       box-sizing: border-box;
       appearance: none;
     }
+
     .modal-field select:focus,
     .modal-field input[type="number"]:focus {
       outline: none;
@@ -135,8 +155,15 @@
       transition: background 0.2s, transform 0.15s;
       margin-top: 4px;
     }
-    #btn-calcular:hover { background: #1b5e20; transform: translateY(-1px); }
-    #btn-calcular:active { transform: translateY(0); }
+
+    #btn-calcular:hover {
+      background: #1b5e20;
+      transform: translateY(-1px);
+    }
+
+    #btn-calcular:active {
+      transform: translateY(0);
+    }
 
     /* Resultado */
     #resultado {
@@ -148,10 +175,19 @@
       padding: 18px 20px;
       animation: fadeUp 0.3s ease both;
     }
+
     @keyframes fadeUp {
-      from { opacity:0; transform: translateY(8px); }
-      to   { opacity:1; transform: translateY(0); }
+      from {
+        opacity: 0;
+        transform: translateY(8px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
+
     #resultado .res-label {
       font-size: 0.75rem;
       font-weight: 700;
@@ -160,12 +196,14 @@
       color: #558b2f;
       margin-bottom: 4px;
     }
+
     #resultado .res-valor {
       font-size: 1.7rem;
       font-weight: 800;
       color: #1b5e20;
       margin-bottom: 4px;
     }
+
     #resultado .res-obs {
       font-size: 0.78rem;
       color: #666;
@@ -190,8 +228,229 @@
       text-decoration: none;
       transition: background 0.2s, transform 0.15s;
     }
-    #btn-whatsapp:hover { background: #1ebe5d; transform: translateY(-1px); }
-    #btn-whatsapp svg { flex-shrink: 0; }
+
+    #btn-whatsapp:hover {
+      background: #1ebe5d;
+      transform: translateY(-1px);
+    }
+
+    #btn-whatsapp svg {
+      flex-shrink: 0;
+    }
+
+    :root {
+      --cream: #FDFAF5;
+      --dark: #1A1A1A;
+      --accent: #2D6A4F;
+      --accent-light: #E8F4EE;
+      --accent-mid: #52B788;
+      --dog: #1B4332;
+      --cat: #774936;
+      --cat-light: #F5EBE6;
+      --dog-light: #E8F4EE;
+      --border: #D8CFC4;
+      --muted: #7A7060;
+      --row-hover: #F5F0E8;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    .page {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    /* HEADER */
+    .header {
+      text-align: center;
+      margin-bottom: 48px;
+      padding-bottom: 32px;
+      border-bottom: 1.5px solid var(--border);
+      position: relative;
+    }
+
+    .header::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 1.5px;
+      background: var(--accent-mid);
+    }
+
+    .header-tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: var(--accent-light);
+      padding: 5px 16px;
+      border-radius: 99px;
+      margin-bottom: 16px;
+    }
+
+    .header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 38px;
+      font-weight: 700;
+      color: var(--dark);
+      line-height: 1.2;
+      margin-bottom: 10px;
+    }
+
+    .header p {
+      font-size: 13px;
+      color: var(--muted);
+      font-weight: 300;
+      max-width: 480px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    /* TABLE */
+    .table-wrap {
+      background: #fff;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      overflow: hidden;
+      margin-bottom: 48px;
+      box-shadow: 0 2px 24px rgba(0, 0, 0, 0.04);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    /* Column widths */
+    col.c-service {
+      width: 50%;
+    }
+
+    col.c-dog {
+      width: 25%;
+    }
+
+    col.c-cat {
+      width: 25%;
+    }
+
+    /* THEAD */
+    thead tr {
+      background: var(--dark);
+    }
+
+    thead th {
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      padding: 18px 20px;
+      text-align: left;
+      color: #fff;
+    }
+
+    thead th.th-dog {
+      background: var(--dog);
+      text-align: center;
+    }
+
+    thead th.th-cat {
+      background: var(--cat);
+      text-align: center;
+      border-left: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .th-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+    }
+
+    .th-pill {
+      font-size: 10px;
+      letter-spacing: 0.05em;
+      font-weight: 400;
+      opacity: 0.7;
+      display: block;
+      margin-top: 2px;
+    }
+
+    .group-row td {
+      font-family: 'Playfair Display', serif;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--accent);
+      background: var(--accent-light);
+      padding: 10px 20px;
+      border-top: 1px solid var(--border);
+      letter-spacing: 0.02em;
+    }
+
+    /* DATA ROWS */
+    tbody tr:not(.group-row) {
+      transition: background 0.12s;
+    }
+
+    tbody tr:not(.group-row):hover {
+      background: var(--row-hover);
+    }
+
+    tbody tr:not(.group-row) td {
+      padding: 10px 20px;
+      font-size: 13.5px;
+      border-bottom: 1px solid #F0EBE3;
+      vertical-align: middle;
+    }
+
+    tbody tr:not(.group-row):last-child td {
+      border-bottom: none;
+    }
+
+    .td-service {
+      color: var(--dark);
+      font-weight: 400;
+    }
+
+    .td-price {
+      text-align: center;
+      font-weight: 500;
+      font-size: 13px;
+      white-space: nowrap;
+    }
+
+    .td-price.dog-price {
+      color: var(--dog);
+      border-left: 1px solid #F0EBE3;
+      background: rgba(27, 67, 50, 0.02);
+    }
+
+    .td-price.cat-price {
+      color: var(--cat);
+      border-left: 1px solid #F0EBE3;
+      background: rgba(119, 73, 54, 0.02);
+    }
+
+    @media print {
+      body {
+        padding: 20px;
+        background: #fff;
+      }
+
+      .table-wrap {
+        box-shadow: none;
+      }
+    }
   </style>
 </head>
 
@@ -234,15 +493,16 @@
 
       <div class="item" onclick="abrirModal('Consulta Veterinária')">
         <figure>
-          <img src="../image/golden-health.jpg" alt="Consulta Veterinária">
+          <img src="../image/dog-checkup.jpeg" alt="Consulta Veterinária">
         </figure>
         <h3>Consulta Veterinária</h3>
-        <p>Avaliação completa do seu pet com profissionais qualificados, garantindo diagnósticos precisos e cuidado individualizado.</p>
+        <p>Avaliação completa do seu pet com profissionais qualificados, garantindo diagnósticos precisos e cuidado
+          individualizado.</p>
       </div>
 
       <div class="item" onclick="abrirModal('Vacinação')">
         <figure>
-          <img src="../image/background.jpg" alt="Vacinação">
+          <img src="../image/cat-vaccinations-og.jpg" alt="Vacinação">
         </figure>
         <h3>Vacinação</h3>
         <p>Calendário vacinal atualizado para cães e gatos, protegendo seu animal contra as principais doenças.</p>
@@ -250,34 +510,371 @@
 
       <div class="item" onclick="abrirModal('Cirurgia')">
         <figure>
-          <img src="../image/golden-health.jpg" alt="Cirurgia">
+          <img src="../image/pet-surgery.jpg" alt="Cirurgia">
         </figure>
         <h3>Cirurgia</h3>
-        <p>Centro cirúrgico equipado com tecnologia moderna para procedimentos eletivos e de emergência com total segurança.</p>
+        <p>Centro cirúrgico equipado com tecnologia moderna para procedimentos eletivos e de emergência com total
+          segurança.</p>
       </div>
 
       <div class="item" onclick="abrirModal('Higienização')">
         <figure>
-          <img src="../image/golden-health.jpg" alt="Serviço 4">
+          <img src="../image/image4-1.jpg" alt="Serviço 4">
         </figure>
         <h3>Higienização</h3>
-        <p>...</p>
+        <p>Banho e tosa realizados por profissionais treinados, com produtos adequados para cada tipo de pelagem e
+          porte. Além de deixar seu pet limpo e perfumado, a higienização regular é parte essencial de uma rotina
+          saudável.</p>
       </div>
 
       <div class="item" onclick="abrirModal('Exames')">
         <figure>
-          <img src="../image/golden-health.jpg" alt="Serviço 5">
+          <img src="../image/canine-blood-testing.jpg" alt="Serviço 5">
         </figure>
         <h3>Exames</h3>
-        <p>...</p>
+        <p>Exames laboratoriais e de imagem realizados com equipamentos modernos e precisos. Monitorar a saúde do seu
+          pet de forma preventiva é a melhor maneira de identificar qualquer alteração cedo e agir com rapidez.</p>
       </div>
 
       <div class="item" onclick="abrirModal('Diagnosticos')">
         <figure>
-          <img src="../image/golden-health.jpg" alt="Serviço 6">
+          <img src="../image/pet-ultrasound.jpg" alt="Serviço 6">
         </figure>
         <h3>Diagnosticos</h3>
-        <p>...</p>
+        <p>Avaliação diagnóstica completa para identificar condições de saúde com precisão e agilidade. Com tecnologia
+          avançada e profissionais experientes, chegamos às respostas que o seu pet precisa para receber o tratamento
+          certo.</p>
+      </div>
+
+    </div>
+    <div class="page">
+
+      <div class="header">
+        <div class="header-tag"></div>
+        <h1></h1>
+
+      </div>
+      <div class="table-wrap">
+        <table>
+          <colgroup>
+            <col class="c-service">
+            <col class="c-dog">
+            <col class="c-cat">
+          </colgroup>
+          <thead>
+            <tr>
+              <th>Serviços</th>
+              <th class="th-dog">
+                <div class="th-inner">🐕 Preço Cães</div>
+              </th>
+              <th class="th-cat">
+                <div class="th-inner">🐈 Preço Gatos</div>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+
+            <tr class="group-row">
+              <td colspan="3">Consultas e Clínica Geral</td>
+            </tr>
+            <tr>
+              <td class="td-service">Consulta clínica geral</td>
+              <td class="td-price dog-price">R$ 120</td>
+              <td class="td-price cat-price">R$ 110</td>
+            </tr>
+            <tr>
+              <td class="td-service">Retorno (até 15 dias)</td>
+              <td class="td-price dog-price">R$ 60</td>
+              <td class="td-price cat-price">R$ 55</td>
+            </tr>
+            <tr>
+              <td class="td-service">Consulta de emergência</td>
+              <td class="td-price dog-price">R$ 180</td>
+              <td class="td-price cat-price">R$ 160</td>
+            </tr>
+            <tr>
+              <td class="td-service">Consulta domiciliar</td>
+              <td class="td-price dog-price">R$ 220</td>
+              <td class="td-price cat-price">R$ 200</td>
+            </tr>
+            <tr>
+              <td class="td-service">Consulta geriátrica</td>
+              <td class="td-price dog-price">R$ 140</td>
+              <td class="td-price cat-price">R$ 130</td>
+            </tr>
+            <tr>
+              <td class="td-service">Consulta nutricional</td>
+              <td class="td-price dog-price">R$ 110</td>
+              <td class="td-price cat-price">R$ 105</td>
+            </tr>
+            <tr>
+              <td class="td-service">Consulta comportamental</td>
+              <td class="td-price dog-price">R$ 130</td>
+              <td class="td-price cat-price">R$ 120</td>
+            </tr>
+            <tr>
+              <td class="td-service">Eutanásia humanizada</td>
+              <td class="td-price dog-price">R$ 280</td>
+              <td class="td-price cat-price">R$ 230</td>
+            </tr>
+
+            <tr class="group-row">
+              <td colspan="3">Vacinas e Preventivos</td>
+            </tr>
+            <tr>
+              <td class="td-service">Vacina V10 (cão) / V4 (gato)</td>
+              <td class="td-price dog-price">R$ 90</td>
+              <td class="td-price cat-price">R$ 75</td>
+            </tr>
+            <tr>
+              <td class="td-service">Vacina Antirrábica</td>
+              <td class="td-price dog-price">R$ 55</td>
+              <td class="td-price cat-price">R$ 50</td>
+            </tr>
+            <tr>
+              <td class="td-service">Vacina Gripe / Bordetella</td>
+              <td class="td-price dog-price">R$ 65</td>
+              <td class="td-price cat-price">—</td>
+            </tr>
+            <tr>
+              <td class="td-service">Vacina Giárdia</td>
+              <td class="td-price dog-price">R$ 70</td>
+              <td class="td-price cat-price">—</td>
+            </tr>
+            <tr>
+              <td class="td-service">Vacina Leishmaniose</td>
+              <td class="td-price dog-price">R$ 180</td>
+              <td class="td-price cat-price">—</td>
+            </tr>
+            <tr>
+              <td class="td-service">Vacina FeLV</td>
+              <td class="td-price dog-price">—</td>
+              <td class="td-price cat-price">R$ 80</td>
+            </tr>
+            <tr>
+              <td class="td-service">Vacina FIV</td>
+              <td class="td-price dog-price">—</td>
+              <td class="td-price cat-price">R$ 90</td>
+            </tr>
+            <tr>
+              <td class="td-service">Vacina Calicivírus</td>
+              <td class="td-price dog-price">—</td>
+              <td class="td-price cat-price">R$ 65</td>
+            </tr>
+            <tr>
+              <td class="td-service">Vermifugação</td>
+              <td class="td-price dog-price">R$ 45</td>
+              <td class="td-price cat-price">R$ 40</td>
+            </tr>
+            <tr>
+              <td class="td-service">Antipulgas e carrapatos (dose)</td>
+              <td class="td-price dog-price">R$ 55</td>
+              <td class="td-price cat-price">R$ 50</td>
+            </tr>
+            <tr>
+              <td class="td-service">Microchip (identificação)</td>
+              <td class="td-price dog-price">R$ 90</td>
+              <td class="td-price cat-price">R$ 90</td>
+            </tr>
+
+            <tr class="group-row">
+              <td colspan="3">Estética e Bem-estar</td>
+            </tr>
+            <tr>
+              <td class="td-service">Banho</td>
+              <td class="td-price dog-price">R$ 70</td>
+              <td class="td-price cat-price">R$ 65</td>
+            </tr>
+            <tr>
+              <td class="td-service">Banho + Tosa</td>
+              <td class="td-price dog-price">R$ 115</td>
+              <td class="td-price cat-price">R$ 100</td>
+            </tr>
+
+            <tr class="group-row">
+              <td colspan="3">Cirurgias</td>
+            </tr>
+            <tr>
+              <td class="td-service">Castração macho</td>
+              <td class="td-price dog-price">R$ 520</td>
+              <td class="td-price cat-price">R$ 380</td>
+            </tr>
+            <tr>
+              <td class="td-service">Castração fêmea</td>
+              <td class="td-price dog-price">R$ 670</td>
+              <td class="td-price cat-price">R$ 500</td>
+            </tr>
+            <tr>
+              <td class="td-service">Cesariana</td>
+              <td class="td-price dog-price">R$ 1.000</td>
+              <td class="td-price cat-price">R$ 880</td>
+            </tr>
+            <tr>
+              <td class="td-service">Cirurgia ortopédica</td>
+              <td class="td-price dog-price">R$ 2.000</td>
+              <td class="td-price cat-price">—</td>
+            </tr>
+            <tr>
+              <td class="td-service">Cirurgia urinária (obstrução)</td>
+              <td class="td-price dog-price">—</td>
+              <td class="td-price cat-price">R$ 1.500</td>
+            </tr>
+            <tr>
+              <td class="td-service">Cirurgia dentária (extração)</td>
+              <td class="td-price dog-price">R$ 500</td>
+              <td class="td-price cat-price">R$ 460</td>
+            </tr>
+            <tr>
+              <td class="td-service">Cirurgia de hérnia</td>
+              <td class="td-price dog-price">R$ 1.400</td>
+              <td class="td-price cat-price">R$ 1.200</td>
+            </tr>
+            <tr>
+              <td class="td-service">Cirurgia gastrointestinal</td>
+              <td class="td-price dog-price">R$ 2.000</td>
+              <td class="td-price cat-price">R$ 1.800</td>
+            </tr>
+            <tr>
+              <td class="td-service">Cirurgia ocular</td>
+              <td class="td-price dog-price">R$ 1.600</td>
+              <td class="td-price cat-price">—</td>
+            </tr>
+            <tr>
+              <td class="td-service">Cirurgia de tumor (pequeno)</td>
+              <td class="td-price dog-price">R$ 1.100</td>
+              <td class="td-price cat-price">R$ 950</td>
+            </tr>
+            <tr>
+              <td class="td-service">Cirurgia de tumor (grande)</td>
+              <td class="td-price dog-price">R$ 2.200</td>
+              <td class="td-price cat-price">R$ 1.900</td>
+            </tr>
+            <tr>
+              <td class="td-service">Amputação de membro</td>
+              <td class="td-price dog-price">R$ 1.800</td>
+              <td class="td-price cat-price">R$ 1.600</td>
+            </tr>
+
+            <tr class="group-row">
+              <td colspan="3">Exames e Diagnóstico</td>
+            </tr>
+            <tr>
+              <td class="td-service">Hemograma completo</td>
+              <td class="td-price dog-price">R$ 90</td>
+              <td class="td-price cat-price">R$ 85</td>
+            </tr>
+            <tr>
+              <td class="td-service">Bioquímica sérica (perfil)</td>
+              <td class="td-price dog-price">R$ 130</td>
+              <td class="td-price cat-price">R$ 120</td>
+            </tr>
+            <tr>
+              <td class="td-service">Ultrassom abdominal</td>
+              <td class="td-price dog-price">R$ 210</td>
+              <td class="td-price cat-price">R$ 190</td>
+            </tr>
+            <tr>
+              <td class="td-service">Raio-X (1 projeção)</td>
+              <td class="td-price dog-price">R$ 125</td>
+              <td class="td-price cat-price">R$ 115</td>
+            </tr>
+            <tr>
+              <td class="td-service">Raio-X (2 projeções)</td>
+              <td class="td-price dog-price">R$ 180</td>
+              <td class="td-price cat-price">R$ 165</td>
+            </tr>
+            <tr>
+              <td class="td-service">Eletrocardiograma</td>
+              <td class="td-price dog-price">R$ 160</td>
+              <td class="td-price cat-price">R$ 150</td>
+            </tr>
+            <tr>
+              <td class="td-service">Ecocardiograma</td>
+              <td class="td-price dog-price">R$ 270</td>
+              <td class="td-price cat-price">R$ 260</td>
+            </tr>
+            <tr>
+              <td class="td-service">Endoscopia</td>
+              <td class="td-price dog-price">R$ 500</td>
+              <td class="td-price cat-price">R$ 480</td>
+            </tr>
+            <tr>
+              <td class="td-service">Tomografia (TC)</td>
+              <td class="td-price dog-price">R$ 1.200</td>
+              <td class="td-price cat-price">R$ 1.100</td>
+            </tr>
+            <tr>
+              <td class="td-service">Exame de fezes</td>
+              <td class="td-price dog-price">R$ 45</td>
+              <td class="td-price cat-price">R$ 40</td>
+            </tr>
+            <tr>
+              <td class="td-service">Exame de urina (EAS)</td>
+              <td class="td-price dog-price">R$ 50</td>
+              <td class="td-price cat-price">R$ 45</td>
+            </tr>
+            <tr>
+              <td class="td-service">Teste FIV/FeLV</td>
+              <td class="td-price dog-price">—</td>
+              <td class="td-price cat-price">R$ 120</td>
+            </tr>
+            <tr>
+              <td class="td-service">Citologia</td>
+              <td class="td-price dog-price">R$ 130</td>
+              <td class="td-price cat-price">R$ 120</td>
+            </tr>
+            <tr>
+              <td class="td-service">Teste de alergia cutânea</td>
+              <td class="td-price dog-price">R$ 180</td>
+              <td class="td-price cat-price">—</td>
+            </tr>
+            <tr>
+              <td class="td-service">Pesquisa de hemoparasitas</td>
+              <td class="td-price dog-price">R$ 80</td>
+              <td class="td-price cat-price">R$ 75</td>
+            </tr>
+
+            <tr class="group-row">
+              <td colspan="3">Terapias e Reabilitação</td>
+            </tr>
+            <tr>
+              <td class="td-service">Fisioterapia (sessão)</td>
+              <td class="td-price dog-price">R$ 130</td>
+              <td class="td-price cat-price">R$ 120</td>
+            </tr>
+            <tr>
+              <td class="td-service">Acupuntura (sessão)</td>
+              <td class="td-price dog-price">R$ 150</td>
+              <td class="td-price cat-price">R$ 140</td>
+            </tr>
+            <tr>
+              <td class="td-service">Hidroterapia (sessão)</td>
+              <td class="td-price dog-price">R$ 120</td>
+              <td class="td-price cat-price">—</td>
+            </tr>
+            <tr>
+              <td class="td-service">Laserterapia (sessão)</td>
+              <td class="td-price dog-price">R$ 100</td>
+              <td class="td-price cat-price">R$ 90</td>
+            </tr>
+            <tr>
+              <td class="td-service">Quimioterapia (sessão)</td>
+              <td class="td-price dog-price">R$ 600</td>
+              <td class="td-price cat-price">R$ 550</td>
+            </tr>
+            <tr>
+              <td class="td-service">Ozonoterapia (sessão)</td>
+              <td class="td-price dog-price">R$ 110</td>
+              <td class="td-price cat-price">R$ 100</td>
+            </tr>
+            <tr>
+              <td class="td-service">Homeopatia (consulta)</td>
+              <td class="td-price dog-price">R$ 100</td>
+              <td class="td-price cat-price">R$ 95</td>
+            </tr>
+
+          </tbody>
+        </table>
       </div>
 
     </div>
@@ -328,7 +925,8 @@
 
         <a id="btn-whatsapp" href="#" target="_blank" rel="noopener">
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            <path
+              d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
           </svg>
           Agendar pelo WhatsApp
         </a>
@@ -339,4 +937,5 @@
   <script src="../js/script.js" defer></script>
 
 </body>
+
 </html>
