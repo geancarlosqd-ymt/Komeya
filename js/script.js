@@ -105,7 +105,7 @@ document.addEventListener('click', (e) => {
         gato:     { base: 500, fator: 15 }
       },
       // Serviços ainda sem nome
-      "_default": {
+      "Higienização": {
         cachorro: { base: 100, fator: 2 },
         gato:     { base: 90,  fator: 1.5 }
       }
@@ -114,6 +114,7 @@ document.addEventListener('click', (e) => {
 
     // LÓGICA DO MODAL
 
+    const divExtra = document.getElementById("div-extra");
     let servicoAtual = "";
 
     function abrirModal(nomeServico) {
@@ -124,6 +125,18 @@ document.addEventListener('click', (e) => {
       document.getElementById("inp-peso").value = "";
       document.getElementById("resultado").style.display = "none";
 
+      if(servicoAtual === "Cirurgia"){
+        divExtra.innerHTML = `        
+        <label for="">Cirurgia</label>
+        <select id="sel-tipo-cirurgia">Selecione o tipo de Cirurgia</select>`;
+      }
+
+      if(servicoAtual === "Higienização"){
+        divExtra.innerHTML = `        
+        <label for="">Higienização</label>
+        <select id="sel-tipo-higenização">Selecione o tipo de Higienização</select>`;
+      }
+
       const overlay = document.getElementById("modal-overlay");
       overlay.classList.add("active");
       document.body.style.overflow = "hidden";
@@ -132,6 +145,7 @@ document.addEventListener('click', (e) => {
     function fecharModal() {
       document.getElementById("modal-overlay").classList.remove("active");
       document.body.style.overflow = "";
+      divExtra.innerHTML = ``;
     }
 
     // Fecha ao clicar fora do modal
@@ -166,6 +180,8 @@ document.addEventListener('click', (e) => {
     }
 
     function calcular() {
+      const divCirirgia = document.getElementById("sel-tipo-higenização").value || "A";
+      const divHigeniza = document.getElementById("sel-tipo-cirurgia").value || "A";
       const especie = document.getElementById("sel-especie").value;
       const raca    = document.getElementById("sel-raca").value;
       const peso    = parseFloat(document.getElementById("inp-peso").value);
