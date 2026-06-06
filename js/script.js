@@ -165,7 +165,7 @@ const servicos = {
     ]
   },
 
-  "Exames": {
+  "Exames e Diagnosticos": {
     cachorro: [
       ["Hemograma completo", "R$ 90"],
       ["Bioquímica sérica (perfil)", "R$ 130"],
@@ -202,7 +202,7 @@ const servicos = {
     ]
   },
 
-  "Diagnosticos": {
+  "Terapias e Reabilitação": {
     cachorro: [
       ["Fisioterapia (sessão)", "R$ 130"],
       ["Acupuntura (sessão)", "R$ 150"],
