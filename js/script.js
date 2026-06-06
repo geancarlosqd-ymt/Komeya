@@ -24,7 +24,7 @@ document.addEventListener('click', (e) => {
   const indicator = document.getElementById('scrollIndicator');
   if (!indicator) return; // só roda na página Sobre
 
-  const maxScroll = 400;
+  const maxScroll = 750;
 
   // Header/Footer: #1B4D3E para #112920
   const navStart = { r: 27, g: 77, b: 62 };
