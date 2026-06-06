@@ -1,167 +1,215 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Marketing</title>
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/marketing.css">
-    <link rel="icon" type="image/png" href="../image/main-icon.ico">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Komeya — Medicina Veterinária</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/marketing.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <header>
-        <div class="navbar">
-            <!-- Logo clicável, alinhada à esquerda -->
-            <a href="index.html" class="logo-link">
-                <img src="../image/Horizontal2.png" alt="Logotipo Komeya" class="logotopo">
-            </a>
 
-            <nav class="nav-desktop" aria-label="Navegação principal">
-                <a href="../index.html">Início</a>
-                <a href="../pages/sobre.html">Sobre</a>
-                <a href="../pages/serviços.html">Serviços</a>
-                <a href="../pages/contato.html">Contato</a>
-                <a href="../pages/marketing.html">Marketing</a>
-            </nav>
+  <header>
+    <div class="navbar">
+      <a href="../index.html" class="logo-link">
+        <img src="../image/Horizontal2.png" alt="Logotipo Komeya" class="logotopo">
+      </a>
+      <nav class="nav-desktop" aria-label="Navegação principal">
+        <a href="../index.html">Início</a>
+        <a href="sobre.html">Sobre</a>
+        <a href="serviços.html">Serviços</a>
+        <a href="contato.html">Contato</a>
+        <a href="marketing.html">Marketing</a>
+      </nav>
+      <button class="hamburger" id="btn" aria-label="Abrir menu" aria-expanded="false" onclick="toggleMenu()">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+    </div>
+    <div class="nav-menu" id="menu" aria-hidden="true">
+      <a href="../index.html">Início</a>
+      <a href="sobre.html">Sobre</a>
+      <a href="serviços.html">Serviços</a>
+      <a href="contato.html">Contato</a>
+      <a href="marketing.html">Marketing</a>
+    </div>
+  </header>
 
-            <button class="hamburger" id="btn" aria-label="Abrir menu" aria-expanded="false" onclick="toggleMenu()">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </button>
+  <main class="lp-main">
+
+
+    <section class="lp-hero">
+      <div class="lp-hero-content">
+        <span class="lp-badge">Belo Horizonte · Cruzeiro</span>
+        <h1 class="lp-hero-title">KOMEYA</h1>
+        <p class="lp-hero-sub">Seu pet merece o melhor cuidado.<br>A Komeya garante isso.</p>
+        <p class="lp-hero-desc">Clínica veterinária completa em Belo Horizonte. Consultas, vacinação, cirurgias e muito mais, com uma equipe que trata cada animal como se fosse o seu.</p>
+        <a href="https://wa.me/5531992824699?text=Olá%2C+gostaria+de+agendar+uma+consulta." class="lp-btn-primary">Agende uma consulta</a>
+      </div>
+      <div class="lp-hero-img">
+        <img src="../image/golden-health.jpg" alt="Pet feliz na Komeya">
+      </div>
+    </section>
+
+
+    <section class="lp-section lp-sobre">
+      <div class="lp-section-tag">Quem somos</div>
+      <div class="lp-sobre-grid">
+        <div class="lp-sobre-text">
+          <h2 class="lp-section-title">Uma clínica feita com propósito</h2>
+          <p>A Komeya nasceu em Belo Horizonte para ser a clínica que os tutores de BH precisavam: um lugar sério, acolhedor e preparado para cuidar de cães e gatos com o que há de melhor na medicina veterinária.</p>
+          <p>Nossa estrutura é completa, nossa equipe é qualificada e nosso atendimento começa sempre da mesma forma: ouvindo você.</p>
         </div>
-
-        <div class="nav-menu" id="menu" aria-hidden="true">
-            <a href="../index.html">Início</a>
-            <a href="../pages/sobre.html">Sobre</a>
-            <a href="../pages/serviços.html">Serviços</a>
-            <a href="../pages/contato.html">Contato</a>
-            <a href="../pages/marketing.html">Marketing</a>
+        <div class="lp-sobre-accent">
+          <div class="lp-accent-item">
+            <span class="lp-accent-number">+500</span>
+            <span class="lp-accent-label">pets atendidos</span>
+          </div>
+          <div class="lp-accent-item">
+            <span class="lp-accent-number">5★</span>
+            <span class="lp-accent-label">avaliação média</span>
+          </div>
         </div>
-    </header>
+      </div>
+    </section>
 
-    <main>
-        <div id="marketingDiv">
-            <div>
-                <h1 id="marketingh1">KOMEYA</h1>
-                <p class="sub-line">Seu pet merece o melhor cuidado. A Komeya garante isso.</p>
-
-                <p>Subheadline: Clínica veterinária completa em Belo Horizonte. Consultas, vacinação, cirurgias e muito
-                    mais, com uma equipe que trata cada animal como se fosse o seu.</p>
-
-                <button> Agende uma consulta </button>
-            </div>
-
-            [SOBRE]
-
-            <div>
-                <h2>>Quem somos</h2>
-
-                <p>A Komeya nasceu em Belo Horizonte para ser a clínica que os tutores de BH precisavam: um lugar
-                    sério, acolhedor e preparado para cuidar de cães e gatos com o que há de melhor na medicina
-                    veterinária.
-                </p>
-
-                <p>Nossa estrutura é completa, nossa equipe é qualificada e nosso atendimento começa sempre da mesma
-                    forma: ouvindo você.
-                </p>
-            </div>
-
-            [SERVIÇOS]
-
-            <div>
-                <h2>O que oferecemos</h2>
-
-                Consulta: <p>Veterinária Avaliação completa com profissionais qualificados, garantindo diagnósticos
-                    precisos e atenção individualizada para cada paciente.</p>
-
-                Vacinação: <p>Calendário vacinal atualizado para cães e gatos, protegendo seu animal contra as
-                    principais
-                    doenças com segurança e cuidado.</p>
-
-                Cirurgia: <p>Centro cirúrgico moderno para procedimentos eletivos e de emergência, com total segurança e
-                    acompanhamento em cada etapa.</p>
-
-                Higienização: <p>Banho e tosa realizados por profissionais treinados, com produtos adequados para cada
-                    tipo
-                    de pelagem. Seu pet sai limpo, perfumado e bem cuidado.</p>
-
-                Exames: <p>Exames laboratoriais e de imagem com equipamentos modernos, para monitorar a saúde do seu pet
-                    e
-                    embasar diagnósticos com precisão.</p>
-
-                Diagnósticos: <p>Avaliação diagnóstica completa com tecnologia avançada, para identificar condições de
-                    saúde com rapidez e segurança, garantindo o melhor caminho de tratamento.</p>
-                <p>
-                    <button>Ver todos os serviços</button>
-                </p>
-            </div>
-
-            [DIFERENCIAIS]
-
-            <div>
-                <h2>Por que escolher a Komeya?</h2>
-
-                <p>Atendimento humano e técnico: Nossa equipe une qualificação profissional e cuidado genuíno. Cada
-                    consulta é tratada com atenção real, não como mais um número na fila.</p>
-
-                <p>Estrutura completa: Do check-up à cirurgia, temos tudo que o seu pet precisa em um só lugar. Sem
-                    precisar correr de clínica em clínica.</p>
-
-                <p>No coração de BH: Estamos no Cruzeiro, com horários pensados para encaixar na rotina de quem mora e
-                    trabalha em Belo Horizonte.</p>
-
-                <p>Transparência em cada passo: Você sabe exatamente o que está acontecendo com o seu pet em cada etapa
-                    do
-                    avtendimento. Sem surpresas.</p>
-            </div>
-
-            [DEPOIMENTOS]
-            <div>
-                <h2>O que dizem nossos clientes</h2>
-
-                <p>Depoimento 1: "Levo minha cachorra na Komeya há mais de um ano e nunca me arrependi. A equipe é
-                    atenciosa, explica tudo direitinho e ela adora ir lá. Recomendo de olhos fechados." Maria Clara,
-                    tutora
-                    da Bella</p>
-
-                <p>Depoimento 2: "Meu gato precisou de cirurgia e fiquei muito preocupado. A equipe da Komeya me deixou
-                    tranquilo durante todo o processo, explicou cada etapa e o resultado foi ótimo. Muito profissional."
-                    Rafael Souza, tutor do Mingau</p>
-
-                <p>Depoimento 3: "A melhor clínica veterinária que já fui em BH. Atendimento rápido, estrutura boa e os
-                    veterinários realmente se importam com os animais. Já indiquei para vários amigos." Ana Paula,
-                    tutora do
-                    Thor</p>
-            </div>
-
-            [CTA FINAL]
-
-            <div>
-                <h2>Pronto para cuidar do seu pet?</h2>
-
-                Texto:<p>Agende uma consulta e descubra por que tantos tutores em BH confiam na Komeya. Estamos aqui
-                    para
-                    atender você e quem você ama.</p>
-                <p>
-                    <button>Fale com a gente pelo WhatsApp</button>
-
-                    <button>Ver nossos serviços</button>
-                </p>
-            </div>
-            </p>
-            <figure id="marketingFig">
-                <img src="../image/golden-health.jpg">
-            </figure>
+    <!-- SERVIÇOS -->
+    <section class="lp-section lp-servicos">
+      <div class="lp-section-tag">O que oferecemos</div>
+      <h2 class="lp-section-title lp-center">Cuidado completo, do check-up à cirurgia</h2>
+      <div class="lp-servicos-grid">
+        <div class="lp-servico-card">
+          <span class="lp-servico-icon">🩺</span>
+          <h3>Consulta Veterinária</h3>
+          <p>Avaliação completa com profissionais qualificados, garantindo diagnósticos precisos e atenção individualizada.</p>
         </div>
-    </main>
+        <div class="lp-servico-card">
+          <span class="lp-servico-icon">💉</span>
+          <h3>Vacinação</h3>
+          <p>Calendário vacinal atualizado para cães e gatos, protegendo seu animal contra as principais doenças.</p>
+        </div>
+        <div class="lp-servico-card">
+          <span class="lp-servico-icon">🔬</span>
+          <h3>Cirurgia</h3>
+          <p>Centro cirúrgico moderno para procedimentos eletivos e de emergência, com total segurança em cada etapa.</p>
+        </div>
+        <div class="lp-servico-card">
+          <span class="lp-servico-icon">🛁</span>
+          <h3>Banho e Tosa</h3>
+          <p>Higienização profissional com produtos adequados para cada tipo de pelagem. Seu pet sai limpo e cheiroso.</p>
+        </div>
+        <div class="lp-servico-card">
+          <span class="lp-servico-icon">🧪</span>
+          <h3>Exames</h3>
+          <p>Exames laboratoriais e de imagem com equipamentos modernos para monitorar a saúde do seu pet.</p>
+        </div>
+        <div class="lp-servico-card">
+          <span class="lp-servico-icon">📋</span>
+          <h3>Diagnósticos</h3>
+          <p>Avaliação diagnóstica completa com tecnologia avançada para identificar condições de saúde com rapidez.</p>
+        </div>
+      </div>
+      <div class="lp-center" style="margin-top: 44px;">
+        <a href="serviços.html" class="lp-btn-outline">Ver todos os serviços</a>
+      </div>
+    </section>
 
-    <footer>
-        <p>&copy; 2024 Komeya Veterinária. Todos os direitos reservados.</p>
-    </footer>
+    <!-- DIFERENCIAIS -->
+    <section class="lp-section lp-diferenciais">
+      <div class="lp-section-tag lp-tag-light">Por que a Komeya?</div>
+      <h2 class="lp-section-title lp-center lp-white">Por que escolher a Komeya?</h2>
+      <div class="lp-diferenciais-grid">
+        <div class="lp-diferencial">
+          <span class="lp-dif-icon">🤝</span>
+          <h3>Atendimento humano e técnico</h3>
+          <p>Nossa equipe une qualificação profissional e cuidado genuíno. Cada consulta é tratada com atenção real, não como mais um número na fila.</p>
+        </div>
+        <div class="lp-diferencial">
+          <span class="lp-dif-icon">🏥</span>
+          <h3>Estrutura completa</h3>
+          <p>Do check-up à cirurgia, temos tudo que o seu pet precisa em um só lugar. Sem precisar correr de clínica em clínica.</p>
+        </div>
+        <div class="lp-diferencial">
+          <span class="lp-dif-icon">📍</span>
+          <h3>No coração de BH</h3>
+          <p>Estamos no Cruzeiro, com horários pensados para encaixar na rotina de quem mora e trabalha em Belo Horizonte.</p>
+        </div>
+        <div class="lp-diferencial">
+          <span class="lp-dif-icon">💬</span>
+          <h3>Transparência em cada passo</h3>
+          <p>Você sabe exatamente o que está acontecendo com o seu pet em cada etapa do atendimento. Sem surpresas.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="lp-section lp-depoimentos">
+      <div class="lp-section-tag">Depoimentos</div>
+      <h2 class="lp-section-title lp-center">O que dizem nossos clientes</h2>
+      <div class="lp-depoimentos-grid">
+        <div class="lp-depoimento">
+          <div class="lp-dep-estrelas">★★★★★</div>
+          <p class="lp-dep-texto">"Levo minha cachorra na Komeya há mais de um ano e nunca me arrependi. A equipe é atenciosa, explica tudo direitinho e ela adora ir lá. Recomendo de olhos fechados."</p>
+          <div class="lp-dep-autor">
+            <span class="lp-dep-avatar">MC</span>
+            <div>
+              <strong>Maria Clara</strong>
+              <span>Tutora da Bella</span>
+            </div>
+          </div>
+        </div>
+        <div class="lp-depoimento lp-dep-destaque">
+          <div class="lp-dep-estrelas">★★★★★</div>
+          <p class="lp-dep-texto">"Meu gato precisou de cirurgia e fiquei muito preocupado. A equipe da Komeya me deixou tranquilo durante todo o processo, explicou cada etapa e o resultado foi ótimo. Muito profissional."</p>
+          <div class="lp-dep-autor">
+            <span class="lp-dep-avatar">RS</span>
+            <div>
+              <strong>Rafael Souza</strong>
+              <span>Tutor do Mingau</span>
+            </div>
+          </div>
+        </div>
+        <div class="lp-depoimento">
+          <div class="lp-dep-estrelas">★★★★★</div>
+          <p class="lp-dep-texto">"A melhor clínica veterinária que já fui em BH. Atendimento rápido, estrutura boa e os veterinários realmente se importam com os animais. Já indiquei para vários amigos."</p>
+          <div class="lp-dep-autor">
+            <span class="lp-dep-avatar">AP</span>
+            <div>
+              <strong>Ana Paula</strong>
+              <span>Tutora do Thor</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="lp-cta-final">
+      <div class="lp-cta-inner">
+        <img src="../image/golden-health.jpg" alt="" class="lp-cta-bg-img" aria-hidden="true">
+        <div class="lp-cta-overlay"></div>
+        <div class="lp-cta-content">
+          <h2 class="lp-cta-title">Pronto para cuidar do seu pet?</h2>
+          <p>Agende uma consulta e descubra por que tantos tutores em BH confiam na Komeya. Estamos aqui para atender você e quem você ama.</p>
+          <div class="lp-cta-btns">
+            <a href="https://wa.me/5531992824699?text=Olá%2C+gostaria+de+agendar+uma+consulta." class="lp-btn-primary lp-btn-lg">💬 Fale pelo WhatsApp</a>
+            <a href="serviços.html" class="lp-btn-ghost">Ver nossos serviços</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2024 Komeya Veterinária. Todos os direitos reservados.</p>
+  </footer>
+
+  <script src="../js/script.js" defer></script>
 </body>
-
 </html>
