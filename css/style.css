@@ -26,6 +26,28 @@ body {
   display: flex;
   flex-direction: column;
 }
+.principal {
+  display: flex;
+  flex-direction: column;
+  gap: 0
+}
+.principal h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(3rem, 6vw, 5.4rem);
+  font-weight: 300;
+  color: #fff;
+  line-height: 1.08;
+  letter-spacing: -.01em;
+  text-shadow: 0 2px 32px rgba(0,0,0,0.5);
+  margin-bottom: 20px;
+}
+.principal h2 {
+  font-style: italic;
+  color: #c8a96e;
+  font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+  text-shadow: 0 2px 8px rgba(0,0,0,0.45);
+  line-height: 1.4;
+}
 
 /* ===========================
    HEADER
