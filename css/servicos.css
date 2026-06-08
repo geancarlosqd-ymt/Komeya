@@ -1,8 +1,85 @@
+:root {
+  --cream: #FDFAF5;
+  --dark: #1A1A1A;
+  --accent: #2D6A4F;
+  --accent-light: #E8F4EE;
+  --accent-mid: #52B788;
+  --dog: #1B4332;
+  --cat: #774936;
+  --cat-light: #F5EBE6;
+  --dog-light: #E8F4EE;
+  --border: #D8CFC4;
+  --muted: #7A7060;
+  --row-hover: #F5F0E8;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
   background-image: none;
   background-color: #fff;
 }
 
+.page {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 48px;
+  padding-bottom: 32px;
+  border-bottom: 1.5px solid var(--border);
+  position: relative;
+}
+
+.header::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 1.5px;
+  background: var(--accent-mid);
+}
+
+.header-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: var(--accent-light);
+  padding: 5px 16px;
+  border-radius: 99px;
+  margin-bottom: 16px;
+}
+
+.header h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 38px;
+  font-weight: 700;
+  color: var(--dark);
+  line-height: 1.2;
+  margin-bottom: 10px;
+}
+
+.header p {
+  font-size: 13px;
+  color: var(--muted);
+  font-weight: 300;
+  max-width: 480px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* TÍTULO DA PÁGINA */
 .servicos-titulo {
   color: #1B4D3E;
   font-size: clamp(1.6rem, 3vw, 2.2rem);
@@ -11,6 +88,7 @@ body {
   text-shadow: none;
 }
 
+/*  GRID DE SERVIÇOS */
 .container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -18,19 +96,56 @@ body {
   padding-bottom: 80px;
 }
 
+/* ══════════════════════════════════════════
+   CARDS DE SERVIÇO
+   Mesclado: servicos.css + <style> inline
+   ⚠️ CONFLITO RESOLVIDO em .item:hover
+   (ver comentário abaixo)
+══════════════════════════════════════════ */
 .item {
   background: #1B4D3E;
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 4px 28px rgba(0,0,0,0.18);
+  box-shadow: 0 4px 28px rgba(0, 0, 0, 0.18);
   display: flex;
   flex-direction: column;
-  transition: transform 0.2s, box-shadow 0.2s;
+  /* Adicionados do inline: */
+  cursor: pointer;
+  position: relative;
+  /* transition unificada com 'ease' do inline: */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .item:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 36px rgba(0,0,0,0.25);
+  /*
+   * ⚠️ CONFLITO RESOLVIDO:
+   * servicos.css original: 0 8px 36px rgba(0,0,0,0.25)  ← sombra mais forte
+   * <style> inline:        0 8px 24px rgba(0,0,0,0.15)  ← sombra mais suave (ganhava)
+   * Mantido o valor inline pois ele prevalecia na cascata.
+   * Troque para 36px/0.25 se quiser mais impacto.
+   */
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* "Ver preços →" (movido do <style> inline) */
+.item::after {
+  content: "Ver preços →";
+  display: block;
+  width: 100%;
+  margin-top: auto;
+  padding: 18px 20px 24px;
+  text-align: center;
+  font-size: 0.92rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--cor-destaque, #c8a96e);
+  opacity: 0.96;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.item:hover::after {
+  opacity: 1;
 }
 
 .item figure {
@@ -62,7 +177,345 @@ body {
   text-shadow: none;
 }
 
-/* Responsividade sô*/
+/* ══════════════════════════════════════════
+   TABELA DE PREÇOS ESTÁTICA
+   (movida do <style> inline)
+   ⚠️ NOTA: thead tr, thead th etc. são
+   seletores globais — afetam também a
+   tabela gerada pelo modal no JS. Isso já
+   ocorria antes da fusão (comportamento
+   inalterado).
+══════════════════════════════════════════ */
+.table-wrap {
+  background: #fff;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  overflow: hidden;
+  margin-bottom: 48px;
+  box-shadow: 0 2px 24px rgba(0, 0, 0, 0.04);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+col.c-service { width: 50%; }
+col.c-dog     { width: 25%; }
+col.c-cat     { width: 25%; }
+
+thead tr {
+  background: var(--dark);
+}
+
+thead th {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding: 18px 20px;
+  text-align: left;
+  color: #fff;
+}
+
+thead th.th-dog {
+  background: var(--dog);
+  text-align: center;
+}
+
+thead th.th-cat {
+  background: var(--cat);
+  text-align: center;
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.th-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+}
+
+.th-pill {
+  font-size: 10px;
+  letter-spacing: 0.05em;
+  font-weight: 400;
+  opacity: 0.7;
+  display: block;
+  margin-top: 2px;
+}
+
+.group-row td {
+  font-family: 'Playfair Display', serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent);
+  background: var(--accent-light);
+  padding: 10px 20px;
+  border-top: 1px solid var(--border);
+  letter-spacing: 0.02em;
+}
+
+tbody tr:not(.group-row) {
+  transition: background 0.12s;
+}
+
+tbody tr:not(.group-row):hover {
+  background: var(--row-hover);
+}
+
+tbody tr:not(.group-row) td {
+  padding: 10px 20px;
+  font-size: 13.5px;
+  border-bottom: 1px solid #F0EBE3;
+  vertical-align: middle;
+}
+
+tbody tr:not(.group-row):last-child td {
+  border-bottom: none;
+}
+
+.td-service {
+  color: var(--dark);
+  font-weight: 400;
+}
+
+.td-price {
+  text-align: center;
+  font-weight: 500;
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+.td-price.dog-price {
+  color: var(--dog);
+  border-left: 1px solid #F0EBE3;
+  background: rgba(27, 67, 50, 0.02);
+}
+
+.td-price.cat-price {
+  color: var(--cat);
+  border-left: 1px solid #F0EBE3;
+  background: rgba(119, 73, 54, 0.02);
+}
+
+/* ══════════════════════════════════════════
+   MODAL
+   (movido do <style> inline + fixes de
+   responsividade adicionados)
+══════════════════════════════════════════ */
+#modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(3px);
+  z-index: 9000;
+  align-items: center;
+  justify-content: center;
+}
+
+#modal-overlay.active {
+  display: flex;
+}
+
+#modal {
+  background: #fff;
+  border-radius: 16px;
+  width: min(480px, 94vw);
+  padding: 36px 32px 28px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+  position: relative;
+  animation: modalIn 0.25s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  /* FIX responsividade: limita altura e rola internamente */
+  max-height: 90vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+@keyframes modalIn {
+  from {
+    opacity: 0;
+    transform: scale(0.88) translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+#modal-close {
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #666;
+  line-height: 1;
+  transition: color 0.15s;
+}
+
+#modal-close:hover {
+  color: #c0392b;
+}
+
+#modal h2 {
+  margin: 0 0 6px;
+  font-size: 1.25rem;
+  color: #1b5e20;
+}
+
+#modal .modal-subtitle {
+  font-size: 0.85rem;
+  color: #777;
+  margin: 0 0 22px;
+}
+
+.modal-field {
+  margin-bottom: 16px;
+}
+
+.modal-field label {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #444;
+  margin-bottom: 6px;
+}
+
+.modal-field select,
+.modal-field input[type="number"] {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1.5px solid #ddd;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  color: #222;
+  background: #fafafa;
+  transition: border-color 0.2s;
+  box-sizing: border-box;
+  appearance: none;
+}
+
+.modal-field select:focus,
+.modal-field input[type="number"]:focus {
+  outline: none;
+  border-color: #2e7d32;
+  background: #fff;
+}
+
+#btn-calcular {
+  width: 100%;
+  padding: 13px;
+  background: #2e7d32;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  letter-spacing: 0.03em;
+  transition: background 0.2s, transform 0.15s;
+  margin-top: 4px;
+}
+
+#btn-calcular:hover {
+  background: #1b5e20;
+  transform: translateY(-1px);
+}
+
+#btn-calcular:active {
+  transform: translateY(0);
+}
+
+/* Resultado */
+#resultado {
+  display: none;
+  margin-top: 20px;
+  background: #f1f8e9;
+  border: 1.5px solid #aed581;
+  border-radius: 12px;
+  padding: 18px 20px;
+  animation: fadeUp 0.3s ease both;
+  /* FIX responsividade: scroll horizontal em tabelas longas */
+  overflow-x: auto;
+}
+
+/* FIX: largura mínima para a tabela não esmagar colunas */
+#resultado table {
+  min-width: 280px;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+#resultado .res-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: #558b2f;
+  margin-bottom: 4px;
+}
+
+#resultado .res-valor {
+  font-size: 1.7rem;
+  font-weight: 800;
+  color: #1b5e20;
+  margin-bottom: 4px;
+}
+
+#resultado .res-obs {
+  font-size: 0.78rem;
+  color: #666;
+}
+
+#btn-whatsapp {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 13px;
+  background: #25d366;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  letter-spacing: 0.02em;
+  margin-top: 12px;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.15s;
+}
+
+#btn-whatsapp:hover {
+  background: #1ebe5d;
+  transform: translateY(-1px);
+}
+
+#btn-whatsapp svg {
+  flex-shrink: 0;
+}
+
+/* ══════════════════════════════════════════
+   RESPONSIVIDADE
+══════════════════════════════════════════ */
 @media (max-width: 900px) {
   .container {
     grid-template-columns: repeat(2, 1fr);
@@ -77,5 +530,33 @@ body {
 
   .item figure {
     height: 160px;
+  }
+}
+
+/* FIX modal em telas pequenas */
+@media (max-width: 480px) {
+  #modal {
+    padding: 28px 18px 20px;
+    border-radius: 12px;
+  }
+
+  #modal h2 {
+    font-size: 1.1rem;
+  }
+
+  #modal-close {
+    top: 10px;
+    right: 12px;
+  }
+}
+
+@media print {
+  body {
+    padding: 20px;
+    background: #fff;
+  }
+
+  .table-wrap {
+    box-shadow: none;
   }
 }

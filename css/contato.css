@@ -104,7 +104,7 @@ border-radius: 10px;
 text-decoration: none;
 font-weight: 700;
 font-size: 0.9rem;
-transition: opacity 0.2 transform 0.15s;
+transition: opacity 0.2s, transform 0.15s;
 }
 .button-wpp:hover{
     opacity: 0.88;
@@ -118,12 +118,12 @@ justify-content: center;
 padding: 13px 16px;
 gap: 8px;
 background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
-COLOR: #fff;
+color: #fff;
 border-radius: 8px;
 text-decoration: none;
 font-weight: 600;
-FONT-SIZE: 0.9rem;
-transition: opacity 0.2 transform 0.2s;
+font-size: 0.9rem;
+transition: opacity 0.2s, transform 0.2s;
 }
 .button-ig:hover{
     opacity: 0.88;
