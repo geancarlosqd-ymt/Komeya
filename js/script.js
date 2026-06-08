@@ -195,8 +195,8 @@ const servicos = {
       ["Tomografia (TC)", "R$ 1.100"],
       ["Exame de fezes", "R$ 40"],
       ["Exame de urina (EAS)", "R$ 45"],
-      ["Teste FIV/FeLV", "120"],
-      ["Citologia",	"120"],
+      ["Teste FIV/FeLV", "R$ 120"],
+      ["Citologia",	"R$ 120"],
       ["Teste de alergia cutânea", "--"],
       ["Pesquisa de hemoparasitas",	"R$ 75"]
     ]
